@@ -13,6 +13,19 @@ body {
     font-family: "Noto Sans KR";
 }
 
+h2 {
+    display: flex;
+    justify-content: center;
+    color:#222;
+    font-weight: 700;
+    margin-bottom: calc(7.3px + 1.8vw);
+    font-size:calc(-7.4px + 2.8vw);
+}
+
+.section_pd {
+    padding: calc(-8.7px + 6.5vw) 24px 0;
+}
+
 /*header*/
 .header_pc {
     position: fixed;
@@ -75,11 +88,11 @@ body {
 
 /* banner */
     .banner {
-        margin-top:80px;
         max-height:calc(100vh - 80px);
-        width:100%;
+        max-width:100%;
         overflow: hidden;
         position: relative;
+        margin-top:80px;
 
         .swiper-button-prev{
             width:50%;
@@ -87,7 +100,7 @@ body {
             position:absolute;
             top:0;
             left:0;
-            cursor: url('../img/banner/arrow_left.png'), auto;
+            cursor: url('../img/arrow_left.png'), auto;
 
             &:after {
                 content: "";
@@ -117,7 +130,7 @@ body {
             .banner_item {
                 margin: 48px 0 108px 0;
                 font-size:18px;
-                font-weight: 200;
+                font-weight: 400;
             }
 
             .banner_view {
@@ -133,7 +146,7 @@ body {
             position:absolute;
             top:0;
             right:0;
-            cursor: url('../img/banner/arrow_left.png'), auto;
+            cursor: url('../img/arrow_right.png'), auto;
 
             &:after {
                 content: "";
@@ -147,8 +160,7 @@ body {
             img {
                 width:100%;
                 height:100%;
-                background-size: cover;
-                margin-top:-100px;
+                object-fit: cover;
             }
 
             video {
@@ -282,14 +294,34 @@ body {
 /*duplicate swiper section - end*/
 
 /* event section */
-.event_container{
-    padding: 2rem 24px;
-    width:100%;
-    height:auto;
-}
 
-.event_title {
-    
+.event_box_w100 {
+    background-image: url("../img/event_bg_1.jpg");
+    width: 100%;
+    height: 60vh;
+    padding:3vw 12vw 7vw 17vw;
+    background-position: 50%;
+    background-size: cover;
+
+    .event_contents {
+        padding-top: 10vw;
+        display: flex;
+        flex-direction: column;
+
+        .event_title {
+            line-height: 1.375;
+            font-size: 2vw;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .event_info {
+            color:#666;
+            font-size: 1vw;
+            line-height: 1.375;
+            margin-top: 5px;
+        }
+    }
 }
 
 /* event section end */
