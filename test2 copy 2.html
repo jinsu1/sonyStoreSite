@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper duplication</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css"/>
+
+<style>
+    :root {
+        --color-black: #000;
+
+        --animation-duration: 300ms;
+    }
+
+    * {
+        -webkit-box-sizing: content-box;
+        box-sizing: border-box;
+    }
+
+
+    /*header*/
+    .header_pc {
+        position: fixed;
+        top:0;
+        left:0; 
+        width:100%;
+        height:80px;
+        font-size:20px;
+        font-family: 'Noto Sans KR', serif;
+        padding:10px 10px 10px 20px;
+        z-index:100;
+        background-color: var(--color-black);
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.025em;
+        
+
+        .logo {
+            margin:10px;
+            margin-right:auto;
+            width:100px;
+            
+            .logo_img {    
+                width:100%;
+            }
+        }
+
+        .header_pc_menu {
+            margin-left: auto;
+            width:150px;
+            margin:10px;
+            display:flex;
+            justify-content: space-between;
+
+            img {
+                margin-left:20px;
+            }
+        }
+
+        .gnb {
+            width:100%;
+            position: absolute;
+            .gnb_menu {
+                display: flex;
+                width:1000px;
+                margin: 0 auto;
+                color:white;
+                font-weight:600;
+
+                li {
+                    flex: 0 1 20%;
+                    text-align: center;
+                }
+            }
+        }       
+    }
+    /*header-end*/
+
+    /*body*/
+
+    /* banner */
+        .banner {
+            margin-top:80px;
+            max-height:calc(100vh - 80px);
+            width:100%;
+            overflow: hidden;
+            position: relative;
+
+            .swiper-button-prev{
+                width:50%;
+                height:100%;
+                position:absolute;
+                top:0;
+                left:0;
+                cursor: url('test_img/banner/arrow_left.png'), auto;
+
+                &:after {
+                    content: "";
+                }
+            }
+            
+            .swiper-button-next{
+                width:50%;
+                height:100%;
+                position:absolute;
+                top:0;
+                right:0;
+                cursor: url('test_img/banner/arrow_left.png'), auto;
+
+                &:after {
+                    content: "";
+                }
+            }
+            .swiper-slide {
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                
+                img {
+                    width:100%;
+                    height:100%;
+                }
+
+                video {
+                    width: 100%;
+                }
+            }
+
+            .banner_perv {
+                font-size: 550px;
+                color:white;
+                z-index: 1001;
+            }
+
+            .swiper-pagination {
+                position:absolute;
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-end;
+                transform: translateX(-2%);
+                bottom: 2.5rem;
+                color: white;
+                font-weight:bold;
+            }
+        }
+    /* banner end*/
+
+    /*duplicate swiper section*/
+    .wrap {
+		max-width: 1920px;
+        max-height:940px;
+		display: flex;
+        background-color: #f4f4f4;
+        font-family: 'Noto Sans KR', serif;
+	}
+
+	.box {
+		width: 50%;
+        height:auto;
+		display: flex;
+		flex-direction: column;
+        justify-content: center;
+	}
+    
+    .box.style01 {
+        padding-left:5%;
+        
+    }
+
+	.box.style02 {
+		overflow: hidden;
+	}
+
+    .main-slide {
+        width:100%;
+    }
+
+    .main_img {
+        img {
+            width:100%;
+        }
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sub_swiper_title {
+        color: rgb(116, 116, 116);
+        opacity:0;
+        display: -webkit-box;
+        overflow: hidden;
+        height: 2.5em;
+        margin-bottom: 24px;
+        text-overflow: ellipsis;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        font-weight: 700;
+        font-size: 2.3vw;
+        line-height: 1.25;
+        letter-spacing: -.025em;
+    }
+
+    .sub_swiper_name {
+        margin-top: 16px;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.375;
+        letter-spacing: -.025em;
+        color: #222;
+        opacity:0;
+    }
+
+    .sub_swiper_desc {
+        margin-top: 4px;
+        font-size: 18px;
+        letter-spacing: 0;
+        color: #666;
+        opacity: 0;
+    }
+
+    .opacity_1 {
+        opacity: 1;
+    }
+
+    .sub_img {
+        position:relative;
+        top:50%;
+        width:80%;
+        background-color: white;
+        
+        &:after {
+                content: "";
+                display:block;
+                padding-bottom: 100%;
+        }
+
+        img {
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            transition: all var(--animation-duration) ease-in-out;
+
+            &:hover {
+                scale: 1.2;
+            }
+        }
+    }
+
+    /*duplicate swiper section - end*/
+    
+    /* event section */
+    .event_container{
+        padding: 2rem 24px;
+        width:100%;
+        height:auto;
+    }
+
+    .event_title {
+        
+    }
+
+    /* event section end */
+    /*body-end*/
+
+    /*footer*/
+    /*footer-end*/
+    </style>
+</head>    
+<body>
+    <!-- PC header -->
+    <div class="header_pc">
+        <a href="/" class="logo">
+            <img src="/test_img/sony_logo.svg" class="logo_img" alt="sony_logo">
+        </a>
+        <nav class="gnb">
+            <ul class="gnb_menu">
+                <li>스토어 추천 제품</li>
+                <li>제품</li>
+                <li>기획전</li>
+                <li>멤버쉽</li>
+                <li>고객 서비스</li>
+            </ul>
+        </nav>
+        <div class="header_pc_menu">
+            <a href="#">
+                <img src="/test_img/icon_search.svg" alt="검색">
+            </a>
+            <a href="#">
+                <img src="/test_img/icon_mypage.svg" alt="마이페이지">
+            </a>
+            <a href="#">
+                <img src="/test_img/icon_cart.svg" alt="장바구니">
+            </a>
+        </div>
+    </div>
+    <!-- PC header end -->
+
+    <!-- banner -->
+    <div class="banner">
+        <div class="banner_swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="test_img/banner/01_PC_main_IMG.jpg" alt="banner1" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="test_img/banner/02_PC_main_IMG.jpg" alt="banner2" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="banner_video">
+                        <video src="test_img/banner/03_PC_main_vedio.mp3" loop autoplay="true" muted></video>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="test_img/banner/04_PC_main_IMG.jpg" alt="banner4" />
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!-- banner end -->
+    <div class="wrap">
+        <div class="box style02">
+            <!--main-->
+
+            <!-- dual swiper-->
+            <div class="swiper-container main-slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-container main_img">
+                            <img src="test_img/main_swiper_headphone.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-container main_img">
+                            <img src="test_img/main_swiper_earphone.jpg" alt="earphone_img" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-container main_img">
+                            <img src="test_img/main_swiper_camera.jpg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box style01">
+            <div class="lower">
+                <div class="sub_wrap">
+                    <div class="sub_inner">
+                        <div class="swiper-container sub-slide">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide column">
+                                    <span class="sub_swiper_title opacity_1">기록의 완성</span>
+                                    <div class="swiper-slide-container sub_img">
+                                        <img src="test_img/swiper_camera.png" alt="camera" />
+                                    </div>
+                                    <span class="sub_swiper_name opacity_1">ZV-E10M2</span>
+                                    <span class="sub_swiper_desc opacity_1">기록의 완성</span>
+                                </div>
+                                <div class="swiper-slide column">
+                                    <span class="sub_swiper_title">Best 노이즈 캔슬링</span>
+                                    <div class="swiper-slide-container sub_img">
+                                        <img src="test_img/swiper_headphone.png" alt="" />
+                                    </div>
+                                    <span class="sub_swiper_name">WH-1000XM5</span>
+                                    <span class="sub_swiper_desc">#몰입의 즐거움 #스터디헤드폰</span>
+                                </div>
+                                <div class="swiper-slide column">
+                                    <span class="sub_swiper_title">1000X 이어폰</span>
+                                    <div class="swiper-slide-container sub_img">
+                                        <img src="test_img/swiper_earphone.png" alt="" />
+                                    </div>
+                                    <span class="sub_swiper_name">WF-1000XM5</span>
+                                    <span class="sub_swiper_desc">이것은 작게 진화한 핸드폰</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- dual swiper end-->
+
+    <!-- event section-->
+    <div class="event_container">
+
+    </div>
+    <!-- event section end-->
+
+    <!-- jQuery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
+    <script>
+        //banner swiper
+        let loop_slider = true;
+        const num_of_slides = 4;
+        let swiper_sliders = document.querySelectorAll(".banner_swiper");
+
+        for (const this_slider of swiper_sliders){
+            let num_of_slides_before_init = this_slider.querySelectorAll(".swiper-slide").length;
+            if(num_of_slides_before_init < num_of_slides){
+                loop_slider = false;
+            }
+
+            let swiper = new Swiper(this_slider, {
+                slidesPerView: 1,
+                loop: loop_slider,
+                // allowTouchMove: false,
+                navigation: {
+                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-next',
+                },
+                pagination: {
+                el: ".swiper-pagination",
+                type: 'custom',
+                renderCustom: function (swiper, current, total) {
+                    return 'No.0' + current + '<span style="color:#666">' +'&nbsp;___ 0' + total + '</span>';
+                    }
+                },
+            });
+        };
+    </script>
+    
+    <script>
+        //dual_swiper
+        let swiperTopNum = $('.main-slide').find('.swiper-slide');
+        let swiperSubNum = $('.sub-slide').find('.sub-slide');
+
+        let mainSlide = new Swiper('.main-slide', {
+            loop: true,	//슬라이드 반복
+            loopedSlides: swiperTopNum.length,
+            touchRatio: 0
+        });
+
+        let subSlide = new Swiper('.sub-slide', {
+            spaceBetween: 10,	//슬라이드 간격
+            centeredSlides: false,	//슬라이드 중앙 배치
+            slidesPerView: '1.5',	//한번에 보여지는 슬라이드 개수
+            slideToClickedSlide: true,	//클릭 시 해당 슬라이드 위치로 이동
+            loop: true,	//슬라이드 반복
+            loopedSlides: swiperSubNum.length //loop 시 파라미터 duplicate 개수
+        });
+       
+        mainSlide.controller.control = subSlide;
+        subSlide.controller.control = mainSlide;
+    </script>
+    <script>
+        //swiper title, desc opacity
+        const SubSlide = document.querySelectorAll(".column");
+        const SubSlideTitle = document.querySelectorAll(".sub_swiper_title");
+        const SubSlideName = document.querySelectorAll(".sub_swiper_name");
+        const SubSlideDesc = document.querySelectorAll(".sub_swiper_desc");
+
+        // 클래스 변경을 감지할 콜백 함수
+        const callback = function(mutationsList) {
+            mutationsList.forEach(mutation => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                SubSlide.forEach((slide, index) => {
+                    const hasClass = slide.classList.contains('swiper-slide-active');
+                
+                    if (hasClass) {
+                            SubSlideTitle[index].classList.add('opacity_1');
+                            SubSlideName[index].classList.add('opacity_1');
+                            SubSlideDesc[index].classList.add('opacity_1');
+                        } else {
+                            SubSlideTitle[index].classList.remove('opacity_1');
+                            SubSlideName[index].classList.remove('opacity_1');
+                            SubSlideDesc[index].classList.remove('opacity_1');
+                        }
+                    });
+                }
+            });
+        };
+
+        // 각 슬라이드에 대해 MutationObserver를 설정
+        SubSlide.forEach((slide) => {
+            const observer = new MutationObserver(callback);
+            observer.observe(slide, { attributes: true });
+        });
+    </script>
+</body>
+</html>
+
