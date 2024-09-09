@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sonyStore</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css"/>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
+    <link rel="icon" href="assets/img/favicon_144x144.png">
+
+</head>    
+<body>
+    <!-- PC header -->
+    <div class="header_pc">
+        <a href="/" class="logo">
+            <img src="/assets/img/sony_logo.svg" class="logo_img" alt="sony_logo">
+        </a>
+        <nav class="gnb">
+            <ul class="gnb_menu">
+                <li>스토어 추천 제품</li>
+                <li>제품</li>
+                <li>기획전</li>
+                <li>멤버쉽</li>
+                <li>고객 서비스</li>
+            </ul>
+        </nav>
+        <div class="header_pc_menu">
+            <a href="#">
+                <img src="/assets/img/icon_search.svg" alt="검색">
+            </a>
+            <a href="#">
+                <img src="/assets/img/icon_mypage.svg" alt="마이페이지">
+            </a>
+            <a href="#">
+                <img src="/assets/img/icon_cart.svg" alt="장바구니">
+            </a>
+        </div>
+    </div>
+    <!-- PC header end -->
+
+    <!-- banner -->
+    <div class="banner">
+        <div class="banner_swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="assets/img/banner/01_PC_main_IMG.jpg" alt="banner1" />
+                    </a>
+                    <div class="banner_contents">
+                        <div class="banner_title_box">
+                            <span class="banner_title">기록의</span>
+                            <span class="banner_title">완성</span>
+                        </div>
+                        <span class="banner_item">ZV-E10M2</span>
+                        <span class="banner_view"">자세히 보기 ></span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="assets/img/banner/02_PC_main_IMG.jpg" alt="banner2" />
+                    </a>
+                    <div class="banner_contents">
+                        <div class="banner_title_box">
+                            <span class="banner_title">공부할</span>
+                            <span class="banner_title">땐</span>
+                        </div>
+                        <div class="banner_title_box">
+                            <span class="banner_title">스터디헤드폰</span>
+                        </div>
+                        <span class="banner_item">WH-1000XM5</span>
+                        <span class="banner_view">자세히 보기 ></span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="banner_video">
+                        <video src="assets/img/banner/03_PC_main_vedio.mp3" loop autoplay="true" muted></video>
+                    </a>
+                    <div class="banner_contents" style="top:70%">
+                        <span class="banner_view">자세히 보기 ></span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="assets/img/banner/04_PC_main_IMG.jpg" alt="banner4" />
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!-- banner end -->
+    <div class="wrap">
+        <div class="box style02">
+            <!--main-->
+
+            <!-- dual swiper-->
+            <div class="swiper-container main-slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-container main_img">
+                            <img src="assets/img/main_swiper_headphone.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-container main_img">
+                            <img src="assets/img/main_swiper_earphone.jpg" alt="earphone_img" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-container main_img">
+                            <img src="assets/img/main_swiper_camera.jpg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box style01">
+            <div class="lower">
+                <div class="sub_wrap">
+                    <div class="sub_inner">
+                        <div class="swiper-container sub-slide">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide column">
+                                    <span class="sub_swiper_title opacity_1">기록의 완성</span>
+                                    <div class="swiper-slide-container sub_img">
+                                        <img src="assets/img/swiper_camera.png" alt="camera" />
+                                    </div>
+                                    <span class="sub_swiper_name opacity_1">ZV-E10M2</span>
+                                    <span class="sub_swiper_desc opacity_1">기록의 완성</span>
+                                </div>
+                                <div class="swiper-slide column">
+                                    <span class="sub_swiper_title">Best 노이즈 캔슬링</span>
+                                    <div class="swiper-slide-container sub_img">
+                                        <img src="assets/img/swiper_headphone.png" alt="" />
+                                    </div>
+                                    <span class="sub_swiper_name">WH-1000XM5</span>
+                                    <span class="sub_swiper_desc">#몰입의 즐거움 #스터디헤드폰</span>
+                                </div>
+                                <div class="swiper-slide column">
+                                    <span class="sub_swiper_title">1000X 이어폰</span>
+                                    <div class="swiper-slide-container sub_img">
+                                        <img src="assets/img/swiper_earphone.png" alt="" />
+                                    </div>
+                                    <span class="sub_swiper_name">WF-1000XM5</span>
+                                    <span class="sub_swiper_desc">이것은 작게 진화한 핸드폰</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- dual swiper end-->
+
+    <!-- event section-->
+    <div class="event_container">
+
+    </div>
+    <!-- event section end-->
+
+    <!-- jQuery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
+    <script src="assets/js/common.js"></script>
+</body>
+</html>
+
