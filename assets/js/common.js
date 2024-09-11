@@ -100,7 +100,6 @@ window.onload = ( async (e) => {
 
     try {
         response = await axios.get('assets/json/sonyProduct.json');
-        console.log(response.data);
     } catch (error) {
         console.error(`[Error Code] ${error.code}`);
         console.error(`[Error message] ${error.message}`);
@@ -134,3 +133,15 @@ window.onload = ( async (e) => {
 });
 
 /*** product get data end ***/
+
+
+/*** footer drop up ***/
+
+const dropUpBtn = document.querySelector('.drop_up_btn');
+const dropUpContent = document.querySelector('.sony_family_content');
+
+dropUpBtn.addEventListener("click", e => {
+    dropUpContent.classList.toggle("show_family");
+});
+
+/*** footer drop up end ***/
