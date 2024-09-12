@@ -40,6 +40,9 @@ h3 {
     padding: calc(-8.7px + 6.5vw) 0 36px;
 }
 
+.pointer {
+    cursor: pointer;
+}
 
 /*header*/
 .header_pc {
@@ -50,12 +53,13 @@ h3 {
     height:4em;
     font-size:20px;
     font-family: 'Noto Sans KR', serif;
-    padding:10px 10px 10px 20px;
+    padding:10px;
     z-index:100;
     background-color: var(--color-black);
     display: flex;
     align-items: center;
     letter-spacing: -0.025em;
+    transition: .2s;
 
     .logo {
         margin:10px;
@@ -68,7 +72,7 @@ h3 {
         }
     }
 
-    .header_pc_menu {
+    .header_pc_icon_menu {
         margin-left: auto;
         width:150px;
         margin:10px;
@@ -88,6 +92,7 @@ h3 {
 
         .secondary_menu_bg{
             position:absolute;
+            left:0;
             top:80px;
             display: flex;
             justify-content: center;
@@ -103,7 +108,7 @@ h3 {
                 width:1000px;;
                 margin: 0 auto;
 
-                .gnb_menu_secondary {
+                .secondary_menu_list {
                     display:flex;
                     flex-direction: column;
                     align-items: center;
@@ -158,23 +163,25 @@ h3 {
                 letter-spacing: 0.025em;
                 text-decoration: none;
                 color:#fff;
-                border-bottom: 3px solid #000;
                 transition: border-bottom .2s ease-out;
                 transition: color .2s ease-out;
-
-                &:hover {
-                    border-bottom: 3px solid #5865f5;
-                    color:#5865f5;
-                }
             }
         }
     }       
 }
 
 .menu_active {
-    height:500px;
+    background-color: #111;
 }
 
+.menu_active_border {
+    border-bottom: 3px solid #5865f5;
+    color:#5865f5 !important;
+}
+
+.header_pc_hide {
+    top: -4em;
+}
 /*header-end*/
 
 
@@ -486,7 +493,6 @@ h3 {
             flex-direction: column;
             background-size: 20vw;
             height:30vw;
-            transition: background-size .2s ease-in-out;
             justify-content: flex-end;
             padding-bottom: 2vw;
             background-repeat: no-repeat;
@@ -817,6 +823,7 @@ h3 {
             }
 
             .sony_global_link  {
+                margin-left:8px;
                 width: 276px;
                 height:50px;
                 font-size: 14px;
@@ -835,6 +842,27 @@ h3 {
             }
         }
     }
+}
+
+/* go top */
+.go_top {
+    position: fixed;
+    right: 25px;
+    bottom: -100px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #5865f5;
+    cursor: pointer;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: .2s;
+}
+
+.go_top_show {
+    bottom: 25px;
 }
 
 /* footer end */
