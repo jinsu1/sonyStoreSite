@@ -47,7 +47,7 @@ h3 {
     top:0;
     left:0; 
     width:100%;
-    height:80px;
+    height:4em;
     font-size:20px;
     font-family: 'Noto Sans KR', serif;
     padding:10px 10px 10px 20px;
@@ -56,12 +56,12 @@ h3 {
     display: flex;
     align-items: center;
     letter-spacing: -0.025em;
-    
 
     .logo {
         margin:10px;
         margin-right:auto;
         width:100px;
+        z-index:1;
         
         .logo_img {    
             width:100%;
@@ -74,6 +74,7 @@ h3 {
         margin:10px;
         display:flex;
         justify-content: space-between;
+        z-index:1;
 
         img {
             margin-left:20px;
@@ -83,21 +84,99 @@ h3 {
     .gnb {
         width:100%;
         position: absolute;
+        left:0;
+
+        .secondary_menu_bg{
+            position:absolute;
+            top:80px;
+            display: flex;
+            justify-content: center;
+            width:100%;
+            height:0;
+            overflow:hidden;
+            background-color: var(--color-black);
+            transition: height .2s ease-out;
+
+            .secondary_menu {
+                position:absolute;
+                display:flex;
+                width:1000px;;
+                margin: 0 auto;
+
+                .gnb_menu_secondary {
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                    flex: 0 1 20%;
+
+                    li {
+                        width:100%;
+
+                        &:nth-last-child(1) {
+                            padding-bottom: 52px;
+                        }
+
+                        a {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width:100%;
+                            height:54px;
+                            text-decoration: none;
+                            color:#ccc;
+                            font-weight:400;
+                            transition: color .2s ease-out;
+
+                            &:hover {
+                                color:#5865f5;
+                            }
+                        }    
+                    }
+                }
+            }
+        }
+
         .gnb_menu {
             display: flex;
             width:1000px;
+            height: 100%;
             margin: 0 auto;
             color:white;
             font-weight:600;
 
             li {
                 flex: 0 1 20%;
-                text-align: center;
+            }
+
+            .gnb_title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80px;
+                font-size: 1em;
+                font-weight: 500;
+                letter-spacing: 0.025em;
+                text-decoration: none;
+                color:#fff;
+                border-bottom: 3px solid #000;
+                transition: border-bottom .2s ease-out;
+                transition: color .2s ease-out;
+
+                &:hover {
+                    border-bottom: 3px solid #5865f5;
+                    color:#5865f5;
+                }
             }
         }
     }       
 }
+
+.menu_active {
+    height:500px;
+}
+
 /*header-end*/
+
 
 /*body*/
 
@@ -662,6 +741,7 @@ h3 {
             
             .footer_family {
                 margin-top: 40px;
+                display: flex;
 
                 .drop_up {
                     position: relative;
@@ -680,6 +760,13 @@ h3 {
                         height:100%;
                         text-align: left;
                         border:none;
+                        display: flex;
+                        justify-content: space-between;
+
+                        i {
+                            scale: 1.2;
+                            transform: translateY(30%);
+                        }
                     }
 
                     .sony_family_content {
@@ -687,33 +774,38 @@ h3 {
                         position: absolute;
                         background-color: #222;
                         padding: 16px;
-                        bottom: 50px;
+                        bottom: calc(100% + 8px);
                         z-index: 120;
+                        width: 100%;
 
                         .sony_family_title{
                             color:#fff;
-                            margin-bottom: 8px;
                             font-weight: 400;
                             font-size:16px;
 
-                            /* &:nth-child(1) {
-                                margin: 0 0 8px 0;
-                            } */
                         }
 
-                        li {
-                            list-style: none;
+                        ul {
+                            margin:8px 0 24px 0;
 
-                            a {
-                                color: #888;
-                                text-decoration: none;
-                                display: block;
-                                padding: 5px 0;
-                                font-size: 14px;
-                                font-weight:500;
+                            &:nth-last-child(1) {
+                                margin: 8px 0 0 0;
+                            }
 
-                                &:hover {
-                                    color:#5885f5;
+                            li {
+                                list-style: none;
+    
+                                a {
+                                    color: #888;
+                                    text-decoration: none;
+                                    display: block;
+                                    padding: 5px 0;
+                                    font-size: 14px;
+                                    font-weight:500;
+    
+                                    &:hover {
+                                        color:#5885f5;
+                                    }
                                 }
                             }
                         }
@@ -721,6 +813,24 @@ h3 {
                     .show_family {
                         display:block;
                     }
+                }
+            }
+
+            .sony_global_link  {
+                width: 276px;
+                height:50px;
+                font-size: 14px;
+                background-color: #222;
+                color:#888;
+                padding: 16px;
+                cursor: pointer;
+                border:none;
+                display: flex;
+                justify-content: space-between;
+
+                i {
+                    scale: 1.2;
+                    transform: translateY(30%);
                 }
             }
         }

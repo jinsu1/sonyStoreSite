@@ -1,3 +1,35 @@
+/*** nav ***/
+const gnb = document.querySelector(".gnb");
+const secondary = document.querySelector(".secondary_menu_bg");
+
+
+gnb.addEventListener("mouseover", () => {
+    secondary.style.height = `${secondary.scrollHeight}px`;
+});
+
+gnb.addEventListener("mouseout", () => {
+    secondary.style.height = `0px`;
+});
+
+
+// const menuContent = document.querySelectorAll(".secondary_menu_bg > .secondary_menu > ul > li > a");
+
+// gnb.addEventListener("mouseover", (e) => {
+//     menuContent.forEach((v, i) => {
+//         v.style.height = '54px';
+//     });
+// });
+
+
+// gnb.addEventListener("mouseout", () => {
+//     menuContent.forEach((v, i) => {
+//         v.style.height = '0';
+//     });
+//     secondary.style.height = `0px`;
+// });
+/*** nav end ***/
+
+
 
 /***  banner swiper ***/
 let loop_slider = true;
@@ -37,22 +69,22 @@ let swiperTopNum = $('.main-slide').find('.swiper-slide');
 let swiperSubNum = $('.sub-slide').find('.sub-slide');
 
 let mainSlide = new Swiper('.main-slide', {
+    initialSlide: 2, // 슬라이드 시작지점
     loop: true,	//슬라이드 반복
     loopedSlides: swiperTopNum.length,
-    touchRatio: 0
+    touchRatio: 0 // 슬라이드 controll 막음
 });
 
 let subSlide = new Swiper('.sub-slide', {
     spaceBetween: 10,	//슬라이드 간격
-    centeredSlides: false,	//슬라이드 중앙 배치
     slidesPerView: '1.5',	//한번에 보여지는 슬라이드 개수
     slideToClickedSlide: true,	//클릭 시 해당 슬라이드 위치로 이동
     loop: true,	//슬라이드 반복
     loopedSlides: swiperSubNum.length //loop 시 파라미터 duplicate 개수
 });
 
-mainSlide.controller.control = subSlide;
-subSlide.controller.control = mainSlide;
+mainSlide.controller.control = subSlide; // swiper controller 속성을 바깥에서 제어
+subSlide.controller.control = mainSlide; // 안에서 값을 주면 subSlide를 선언하기 전에 control에서 호출해버리게됨
 
 //swiper title, desc opacity
 const SubSlide = document.querySelectorAll(".column");
