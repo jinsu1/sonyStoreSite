@@ -874,6 +874,7 @@ h3 {
 /*footer-end*/
 
 @media (min-width: 1920px) {
+    
     .wrap {
         max-width: none;
         max-height: none;

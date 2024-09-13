@@ -46,9 +46,9 @@ const gnbTitle = document.querySelectorAll(".gnb_title");
 const gnbMenuChild = document.querySelectorAll("nav > ul > li > a");
 const secondMenuChild = document.querySelectorAll("nav > ul > div > div > ul");
 
-function addEvent (el) {
+function addEvent(el) {
     for(let i=0;i<el.length;i++) {
-        el[i].addEventListener("mouseover", (e) => {
+        el[i].addEventListener("mouseover", () => {
             secondary.style.height = `${secondary.scrollHeight}px`;
             gnbTitle[i].classList.add("menu_active_border");
             secondaryList[i].classList.add("menu_active");
@@ -56,9 +56,9 @@ function addEvent (el) {
     }
 }
 
-function removeEvent (el) {
+function removeEvent(el) {
     for(let i=0;i<el.length;i++) {
-        el[i].addEventListener("mouseout", (e) => {
+        el[i].addEventListener("mouseout", () => {
             secondary.style.height = `0px`;
                 secondaryList[i].classList.remove("menu_active");
                 gnbTitle[i].classList.remove("menu_active_border");
