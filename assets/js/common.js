@@ -52,8 +52,6 @@ function addEvent (el) {
             secondary.style.height = `${secondary.scrollHeight}px`;
             gnbTitle[i].classList.add("menu_active_border");
             secondaryList[i].classList.add("menu_active");
-            secondaryList.forEach((v, c) => {
-            });
         });
     }
 }
@@ -62,10 +60,8 @@ function removeEvent (el) {
     for(let i=0;i<el.length;i++) {
         el[i].addEventListener("mouseout", (e) => {
             secondary.style.height = `0px`;
-            secondaryList.forEach((v, c) => {
-                secondaryList[c].classList.remove("menu_active");
+                secondaryList[i].classList.remove("menu_active");
                 gnbTitle[i].classList.remove("menu_active_border");
-            });
         });
     }
 }
