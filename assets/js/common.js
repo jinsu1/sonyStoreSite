@@ -1,25 +1,34 @@
 /*** nav ***/
 
 /* scrollEvent header && go_top append or hide */
+const sideToggleBox = document.querySelector(".side_toggle_box");
 const headerPc = document.querySelector(".header_pc");
+const sideToggleBtn = document.querySelector(".side_toggle_btn");
 const goTop = document.querySelector(".go_top");
 let lastScrollY = 0;
 
 window.addEventListener("scroll", () => {
-    const standard = 30;
 
     if(window.scrollY > lastScrollY) {
         //현재 스크롤 위치가 이전 위치보다 클 때 (내려갈 때)
         headerPc.classList.add("header_pc_hide");
-        goTop.classList.add("go_top_show");
+        sideToggleBox.classList.add("side_toggle_show");
     } else {
         //현재 스크롤 위치가 이전 위치보다 작을 때 (올라갈 떄)
         headerPc.classList.remove("header_pc_hide");
-        goTop.classList.remove("go_top_show");
+        sideToggleBox.classList.remove("side_toggle_show");
     }
 
     lastScrollY = window.scrollY;
 });
+
+const sideToggleContents = document.querySelector('.side_toggle_contents');
+
+sideToggleBtn.addEventListener("click", e => {
+    sideToggleContents.classList.toggle("side_toggle_contents_show");
+    sideToggleBtn.classList.toggle("side_toggle_active");
+});
+
 
 goTop.addEventListener("click", () => {
     window.scrollTo({
@@ -28,6 +37,8 @@ goTop.addEventListener("click", () => {
         behavior: 'smooth'
     });
 });
+
+
 /*
 1) class가 secondary_menu_list인 5개를 배열로 secondaryList라는 변수에 담음
 2) 1번째 depth에 마우스 올라갔을 때 2번째 depth의 ul의 배경색이 바뀌어야함
