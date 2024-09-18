@@ -131,6 +131,7 @@ for (const this_slider of swiper_sliders){
         slidesPerView: 1,
         loop: loop_slider,
         allowTouchMove: false,
+        speed:800,
         navigation: {
         prevEl: '.swiper-button-prev',
         nextEl: '.swiper-button-next',
@@ -163,9 +164,13 @@ let mainSlide = new Swiper('.main-slide', {
 let subSlide = new Swiper('.sub-slide', {
     spaceBetween: 10,	//슬라이드 간격
     slidesPerView: '1.5',	//한번에 보여지는 슬라이드 개수
-    slideToClickedSlide: true,	//클릭 시 해당 슬라이드 위치로 이동
+    // slideToClickedSlide: true,	//클릭 시 해당 슬라이드 위치로 이동
     loop: true,	//슬라이드 반복
-    loopedSlides: swiperSubNum.length //loop 시 파라미터 duplicate 개수
+    speed:800,
+    loopedSlides: swiperSubNum.length, //loop 시 파라미터 duplicate 개수
+    navigation: {
+        nextEl: '.swiper-button-next',
+    }
 });
 
 mainSlide.controller.control = subSlide; // swiper controller 속성을 바깥에서 제어
@@ -263,3 +268,30 @@ dropUpBtn.addEventListener("click", e => {
 });
 
 /*** footer drop up end ***/
+
+/*** sweetalert (modal)  ***/
+document.querySelector(".go_service").addEventListener('click', e => {
+    new Swal({
+        html: '<span class="alert_content">고객님께서 원하시는 제품을<br/> 빠르고 정확하게 구매하실 수 있도록<br/> 도와드리겠습니다.<br/>고객지원센터: 1588-0911</span>',
+        confirmButtonColor: '#000',
+        confirmButtonText: '확인',
+        width: '312px',
+        padding: '16px 0 34px 0',
+    });
+});
+
+document.querySelector(".go_kakao").addEventListener('click', e => {
+    new Swal({
+        html: '<span class="alert_content">카톡 상담을 위해선 로그인이 필요합니다.<br/>로그인 하시겠습니까?</span>',
+        confirmButtonColor: '#000',
+        confirmButtonText: '확인',
+        showCancelButton: true,
+        cancelButtonColor: '#fff',
+        cancelButtonText: '취소',
+        width: '312px',
+        padding: '16px 0 34px 0',
+        reverseButtons: true
+    });
+});
+
+/*** sweetalert (modal) end ***/

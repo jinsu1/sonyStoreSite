@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
     <link rel="icon" href="assets/img/favicon_144x144.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.13.1/sweetalert2.min.css">
+
 </head>    
 <body>
     <script src="./assets/js/loadHTML.js"></script>
@@ -23,7 +25,8 @@
         <div class="banner_swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="assets/img/banner/01_PC_main_IMG.jpg" alt="banner1" />                    <div class="banner_contents">
+                    <img src="assets/img/banner/01_PC_main_IMG.jpg" alt="banner1" /> 
+                    <div class="banner_contents">
                         <div class="banner_title_box">
                             <span class="banner_title">기록의</span>
                             <span class="banner_title">완성</span>
@@ -33,9 +36,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <a href="#">
-                        <img src="assets/img/banner/02_PC_main_IMG.jpg" alt="banner2" />
-                    </a>
+                    <img src="assets/img/banner/02_PC_main_IMG.jpg" alt="banner2" />
                     <div class="banner_contents">
                         <div class="banner_title_box">
                             <span class="banner_title">공부할</span>
@@ -49,17 +50,13 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <a href="#" class="banner_video">
-                        <video src="assets/img/banner/03_PC_main_vedio.mp3" loop autoplay="true" muted></video>
-                    </a>
+                    <video src="assets/img/banner/03_PC_main_vedio.mp3" loop autoplay="true" muted></video>
                     <div class="banner_contents" style="top:70%">
                         <span class="banner_view">자세히 보기 <i class="fas fa-angle-right"></i></span>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <a href="#">
-                        <img src="assets/img/banner/04_PC_main_IMG.jpg" alt="banner4" />
-                    </a>
+                    <img src="assets/img/banner/04_PC_main_IMG.jpg" alt="banner4" />
                     <div class="banner_contents" style="color:black">
                         <div class="banner_title_box">
                             <span class="banner_title">WF-C510</span>
@@ -131,6 +128,7 @@
                                     <span class="sub_swiper_desc">이것은 작게 진화한 핸드폰</span>
                                 </div>
                             </div>
+                            <div class="swiper-button-next"></div>
                         </div>
                     </div>
                 </div>
@@ -210,8 +208,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.13.1/sweetalert2.all.min.js"></script>
     <script src="./assets/js/common.js"></script>
 </body>
 </html>
 
-<!-- 할 것 : sweetalert2 side toggle supply, duplication swiper 이미지 클릭시 상세페이지 이동, 오른쪽 클릭시 다음꺼, banner background image flex-center supply  -->
+<!-- 할 것 : keyframe css로 배너 글자 슬라이드 해보기  -->
