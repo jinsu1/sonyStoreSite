@@ -4,7 +4,7 @@ window.onload = ( async (e) => {
     let response = null;
 
     try {
-        response = await axios.get('assets/json/sonyProduct.json');
+        response = await axios.get('backend/sonyProduct.json');
     } catch (error) {
         console.error(`[Error Code] ${error.code}`);
         console.error(`[Error message] ${error.message}`);

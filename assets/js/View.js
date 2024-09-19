@@ -475,12 +475,42 @@ const clr_name = clr => {
                 }
             } );
         } );
-    } );
+    });
 
-} )();
+    const prdSelectBox = document.querySelector('.prd-select-box');
+      
+    
+    let observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            console.log(mutation);
 
+            
+            const cntBox = document.querySelectorAll('.cnt-box');
 
- 
+            document.querySelectorAll('.plus').forEach( (v,i) => {
+                v.addEventListener('click', e => {
 
+                });
+            });
+            
+            const selectedPrice = document.querySelectorAll('.selected-price');
+            selectedPrice.forEach( (v,i) => { 
+            
+            let price1 = selectedPrice[0].innerHTML;
+            console.log(price1);
 
+            let cntBox = document.querySelector('.cnt-box').value;
+
+            let total = price1 * cntBox;
+            });
+        });
+    });
+    observer.observe(prdSelectBox, { childList: true });
+        
+})();
+
+//콤마빼고 숫자열로 변환
+// function stringNumberToInt(stringNumber){
+//     return parseInt(stringNumber.replace(/,/g , ''));
+// }
 
