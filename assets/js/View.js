@@ -317,6 +317,7 @@ const clr_name = clr => {
 
                 const input = document.createElement('input');
                 input.classList.add('cnt-box');
+                input.classList.add('cnt-input-box');
                 input.setAttribute( 'type', 'text' );
                 input.setAttribute( 'value', 1 );
 
@@ -456,57 +457,76 @@ const clr_name = clr => {
     } );    
     */
     
-    document.querySelectorAll('.tab-menu').forEach( (v,i) => {
-        v.addEventListener( 'click', e => {
-            const current = e.currentTarget;
-            current.classList.add('active');
-            
-            document.querySelectorAll('.tab-menu').forEach( (w,j) => {
-                if ( w !== current ) {
-                    w.classList.remove('active');
-                }
-            } );
-
-            document.querySelectorAll('.tab-zone').forEach( (v1,i1) => {
-                if ( i == i1 ) {
-                    v1.classList.add('active');
-                } else {
-                    v1.classList.remove('active');
-                }
-            } );
-        } );
-    });
-
     const prdSelectBox = document.querySelector('.prd-select-box');
-      
-    
-    let observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            console.log(mutation);
+let cntInputBox = document.querySelectorAll('.cnt-input-box');
 
-            
-            const cntBox = document.querySelectorAll('.cnt-box');
+let observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        console.log(mutation);
 
-            document.querySelectorAll('.plus').forEach( (v,i) => {
-                v.addEventListener('click', e => {
+        // 갱신된 cntInputBox
+        cntInputBox = document.querySelectorAll('.cnt-input-box');
 
-                });
-            });
-            
-            const selectedPrice = document.querySelectorAll('.selected-price');
-            selectedPrice.forEach( (v,i) => { 
-            
-            let price1 = selectedPrice[0].innerHTML;
-            console.log(price1);
-
-            let cntBox = document.querySelector('.cnt-box').value;
-
-            let total = price1 * cntBox;
-            });
+        // 각 버튼에 대한 이벤트 리스너 설정
+        document.querySelectorAll('.plus').forEach((v, i) => {
+            v.removeEventListener('click', addClickHandler); // 기존 핸들러 제거
+            v.addEventListener('click', addClickHandler.bind(null, i));
         });
+
+        document.querySelectorAll('.minus').forEach((v, i) => {
+            v.removeEventListener('click', subtractClickHandler); // 기존 핸들러 제거
+            v.addEventListener('click', subtractClickHandler.bind(null, i));
+        });
+
+        // 가격 업데이트
+        updateTotalPrice();
     });
-    observer.observe(prdSelectBox, { childList: true });
-        
+});
+
+// 더하기 클릭 핸들러
+function addClickHandler(i) {
+    let currentValue = parseInt(cntInputBox[i].value) || 0; // NaN 방지
+    currentValue += 1;
+    cntInputBox[i].value = currentValue; // DOM의 value 속성 업데이트
+    cntInputBox[i].setAttribute('value', currentValue); // HTML 속성 업데이트
+    updateTotalPrice(); // 총합 업데이트
+}
+
+// 빼기 클릭 핸들러
+function subtractClickHandler(i) {
+    if (cntInputBox[i].value > 0) {
+        let currentValue = parseInt(cntInputBox[i].value) || 0; 
+        currentValue -= 1;
+        cntInputBox[i].value = currentValue; 
+        cntInputBox[i].setAttribute('value', currentValue);
+        updateTotalPrice(); // 총합 업데이트
+    }
+}
+
+// 가격 문자열을 숫자로 변환하는 함수
+function parsePrice(priceString) {
+    return parseInt(priceString.replace(/,/g, '').replace(/원/g, '').trim()) || 0;
+}
+
+// 총합 가격 업데이트 함수
+function updateTotalPrice() {
+    const selectedPrice = document.querySelectorAll('.selected-price');
+    let total = 0;
+
+    selectedPrice.forEach((v, i) => { 
+        let price = parsePrice(v.innerHTML);
+        let quantity = parseInt(cntInputBox[i].value) || 0;
+        total += price * quantity;
+    });
+
+    console.log(`Total Price: ${total}`);
+}
+
+// Observer 설정
+observer.observe(prdSelectBox, { childList: true });
+for (let k = 0; k < cntInputBox.length; k++) {
+    observer.observe(cntInputBox[k], { attributes: true });
+}
 })();
 
 //콤마빼고 숫자열로 변환
