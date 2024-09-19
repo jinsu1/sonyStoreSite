@@ -158,7 +158,7 @@ let mainSlide = new Swiper('.main-slide', {
     initialSlide: 2, // 슬라이드 시작지점
     loop: true,	//슬라이드 반복
     loopedSlides: swiperTopNum.length,
-    touchRatio: 0 // 슬라이드 controll 막음
+    touchRatio: 0 // 슬라이드 control 막음
 });
 
 let subSlide = new Swiper('.sub-slide', {
@@ -169,12 +169,15 @@ let subSlide = new Swiper('.sub-slide', {
     speed:800,
     loopedSlides: swiperSubNum.length, //loop 시 파라미터 duplicate 개수
     navigation: {
-        nextEl: '.swiper-button-next',
+        nextEl: '.swiper-button-next'
+    },
+    controller: {
+        control: mainSlide,
     }
 });
 
-mainSlide.controller.control = subSlide; // swiper controller 속성을 바깥에서 제어
-subSlide.controller.control = mainSlide; // 안에서 값을 주면 subSlide를 선언하기 전에 control에서 호출해버리게됨
+//mainSlide.controller.control = subSlide; // swiper controller 속성을 바깥에서 제어
+//subSlide.controller.control = mainSlide; // 안에서 값을 주면 subSlide를 선언하기 전에 control에서 호출해버리게됨
 
 //swiper title, desc opacity
 const SubSlide = document.querySelectorAll(".column");
@@ -210,53 +213,6 @@ SubSlide.forEach((slide) => {
 });
 
 /*** dual_swiper  end ***/
-
-
-
-
-
-/*** product get data ***/
-
-window.onload = ( async (e) => {
-    let response = null;
-
-    try {
-        response = await axios.get('assets/json/sonyProduct.json');
-    } catch (error) {
-        console.error(`[Error Code] ${error.code}`);
-        console.error(`[Error message] ${error.message}`);
-        let alertMsg = error.message;
-
-        //http 상태메세지가 포함되어 있다면 해당 내용을 에러 문자열에 추가
-        if(error.response !== undefined) {
-            const errorMsg = `${error.response.status} error - ${error.response.statusText}`;
-            console.error(`[HTTP Status] ${errorMsg}`);
-            alertMsg += `\n${errorMsg}`;
-        }
-
-        alert(alertMsg);
-        return;
-    }
-
-    const prodContainer = document.querySelector(".product_container");
-
-    response.data.productList.forEach((v, i) => {
-        const prodItem = document.createElement("div");
-        const prodName = document.createElement("span");
-        
-        prodItem.classList.add("product_item");
-        prodItem.classList.add("pointer");
-        prodName.innerHTML = v.prodName;
-
-        prodContainer.appendChild(prodItem);
-        prodItem.appendChild(prodName);
-        prodItem.style.backgroundImage = `url(assets/img/${v.prodImg})`;
-
-    });
-});
-
-/*** product get data end ***/
-
 
 /*** footer drop up ***/
 

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product View</title>
+
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
+    <link rel="icon" href="assets/img/favicon_144x144.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.13.1/sweetalert2.min.css">
+
+    <link rel="stylesheet" href="assets/css/view.css"/>
+
+</head>
+<body>
+    <!-- header -->
+    <script src="./assets/js/loadHTML.js"></script>
+    <script>loadHTML("./header.html");</script>
+
+    <!-- body -->
+    <div class="main">
+
+        <div class="product-view-wrap">    
+
+            <div class="product-view-main">         <!-- flex 좌측 우측 -->
+                
+                <!-- 메인 좌측 - 사진 슬라이드 -->
+                  <!-- flex width 58% -->
+                    
+                <div class="product-main-slider">      
+                    <swiper-container class="view_swiper" navigation="true" pagination="true" loop="true">
+                        <swiper-slide><div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div></swiper-slide>
+                        <swiper-slide><div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div></swiper-slide>
+                        <swiper-slide><div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div></swiper-slide>
+                    </swiper-container>
+                </div>
+
+                
+                <!-- 
+                <div class="product-main-slider">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            
+                            <div class="swiper-slide s1">  </div>
+                            <div class="swiper-slide s2">Slide 2</div>
+                            <div class="swiper-slide s3">Slide 3</div>
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-prev swiper-nav"></div>
+                        <div class="swiper-button-next swiper-nav"></div>
+
+                        <div class="swiper-scrollbar"></div>
+                    </div>
+                </div>
+ -->
+                
+                <!-- 메인 우측 - 구매관련 -->
+                <div class="product-view-about">  
+                    
+                    <!-- 상품명 -->
+                    <div class="product-cont-top">  
+                        <div>
+                            <div class="flag"> NEW </div>
+                            <div class="prd-name"> ZV-E10M3 </div>
+                            <div class="prd-text"> 기록의 완 </div>
+                            <div class="prd-desc"> <div class="icon"></div> <p>이 제품은 기획전을 통해 구매하시면 더 많은 혜택을 받으실 수 있습니다.</p> </div>    
+                        </div>
+                        <div><a class="share"></a></div>
+
+                        <!-- <div class="share"> </div>     -->
+                    </div>
+                    <!-- 가격, 무료배송 -->
+                    <div class="product-cont">  
+                        <div class="product-price">
+                            <div class="sale">
+                                <strong class="cam-price"> 134000 </strong> 원
+                            </div>
+                            <div class="delivery-txt"> 무료배송 </div>
+                        </div>                        
+                    </div>
+                    <!-- 구분선 -->
+                    <div class="divider-light"></div>
+                    <!-- 회원별 마일리지 적립혜택-->
+                    <div class="product-cont member"> 
+                        <div class="tit"> 회원별 마일리지 적립혜택 <span class="icon-question">!</span> </div>
+                        <ul class="membership-rating">
+                            <li class="vip">
+                                <img class="mark vip" src="assets/img/membership_vip.f6121d1d.svg"/>
+                                <div class="save-info">
+                                    <span class="percentage vip"> VIP 4% </span>
+                                    <p class="mileage vip-mlg"> 53600 </p>
+                                </div>
+                            </li>
+                            <li class="family">
+                                <img class="mark" src="assets/img/membership_family.ea303a8f.svg"/>
+                                <div class="save-info">
+                                    <span class="percentage"> MEMBERSHIP 2% </span>
+                                    <p class="mileage family-mlg"> 53600 </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 구분선 -->
+                    <div class="divider-light"></div>
+                    <!-- 색상 -->
+                    <div class="product-cont-color-select">
+                        <!-- 
+                        <div class="color-select">
+                            <p class="tit"> 색상 </p>
+                            <ul class="circle-color-box">
+                                <li>
+                                    <a class="color-btn black">
+                                        <span class="circle-color active">
+                                            <span class="c-bg"></span>
+                                        </span>
+                                        <span class="color-name active"> 블랙 </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="color-btn white">
+                                        <span class="circle-color">
+                                            <span class="c-bg"></span>
+                                        </span>
+                                        <span class="color-name"> 화이트 </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                         -->
+                    </div>
+                    <!-- 제품선택 -->
+                    <div class="product-cont prd-select-wrap">
+                        <div class="prd-select-inner">
+                            <div class="prd-select-box">  
+
+                                <p class="tit"> 제품선택 </p>
+                                <!-- 제품을 선택하세요-->
+                                <div>
+                                    <div class="select-ui-zone">
+                                        <a class="selected-btn">
+                                            <span> 제품을 선택하세요 </span>
+                                            <span class="arrow-down">  </span>
+                                        </a>
+                                        <!-- 선택박스 submenu -->
+                                        
+                                        <ul class="select-inner">
+                                            <!-- 
+                                            <li class="inner-list">
+                                                <a>
+                                                    <span class="circle-prd-clr"></span> <span>ZV-E10M2 / 블랙</span>
+                                                </a>
+                                            </li>
+                                            <li class="inner-list">
+                                                <a>
+                                                    <span class="circle-prd-clr"></span> <span>ZV-E10M2 / 블랙</span>
+                                                </a>
+                                            </li>
+                                             -->
+                                        </ul>
+                                        
+                                    </div>
+                                </div>
+
+                                <!-- 선택된 제품 박스 -->
+                                <!-- 
+                                <div class="selected-opt">  div1
+                                    <div class="selected-opt-container">  div2
+                                        <div class="selected-prd-top">   div3
+                                            <p class="prd"> 제품 </p> <a class="prd-delete">구매목록에서 삭제</a> 
+                                        </div>
+                                        <div class="selected-name">   div4
+                                            <span class="circle"></span><span>ZV-E10M2 / 블랙</span> 
+                                        </div>
+                                        <div class="selected-bottom">  div5
+                                            <div class="count-container">  div6
+                                                <button class="minus cnt-box"> - </button>  btn1
+                                                <input type="text" class="cnt-box" value="1"/>
+                                                <button class="plus cnt-box"> + </button>  btn2
+                                            </div>
+                                            <div class="selected-price">1340000원</div>  div7
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="selected-opt"></div>
+                                    <div class="selected-opt-container">
+                                        <div class="selected-prd-top"> 
+                                            <p class="prd"> 제품 </p> <a class="prd-delete">구매목록에서 삭제</a> 
+                                        </div>
+                                        <div class="selected-name"> 
+                                            <span class="circle"></span><span>ZV-E10M2 / 블랙</span> 
+                                        </div>
+                                        <div class="selected-bottom">
+                                            <div class="count-container">
+                                                <button class="minus cnt-box"> - </button>
+                                                <input type="text" class="cnt-box" value="1"/>
+                                                <button class="plus cnt-box"> + </button>
+                                            </div>
+                                            <div class="selected-price">1340000원</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 -->
+                            </div>
+                            
+                        </div>
+                        <!-- 구분선 -->
+                        <div class="divider-bold"></div>
+                        <!-- 총 상품금액 -->
+                        <div class="result-list">
+                            <div class="result-chk-box">
+                                <p class="tit">
+                                    총 상품금액
+                                    <span class="s-txt">
+                                        <span class="count"></span>
+                                    </span>
+                                </p>
+                                <p class="result-price">
+                                    <span class="num">  </span>
+                                    <span class="tit">원</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 찜, 장바구니, 선물하기, 구매하기 -->
+                        <div class="result-btn-inner">
+                            <div class="result-btn-box">
+                                <ul>
+                                    <li class="heart btn-icon-container">
+                                        <!-- <a href="" class="btn-icon"></a> -->
+                                    </li>
+                                    <li class="cart btn-icon-container"></li>
+                                    <li class="gift btn-icon-container"></li>
+                                    <li class="final"> 
+                                        <a> 바로 구매하기 </a> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <!-- 함께 구매하시면 좋은 추천 제품 -->
+            <div class="product-content-first-recommend">
+                <div>
+                    <div class="rcmd-tit"> 함께 구매하시면 좋은 추천 제품 </div>
+                    <!-- <div class="swiper-rcmd rcmd-prd-list">
+                        <!-- <ul class="swiper-wrapper-rcmd"> -->  <!-- navigation="true" -->
+                        <swiper-container class="recommendSwiper"  space-between="30" slides-per-view="4">
+                            <swiper-slide>
+                                <div class="recommend-img-container">
+                                    <img class="recommend-img" src="assets/img/ILCE-7M4_1.png" />
+                                    <span class="recommend-title">ILCE-7CM2L</span>
+                                    <span class="recommend-desc">원핸드 컴팩트 풀프레임</span>
+                                    <span class="recommend-price">3,090,000원</span>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="recommend-img-container">
+                                    <img class="recommend-img" src="assets/img/ILCE-7M4_1.png" />
+                                    <span class="recommend-title">ILCE-7CM2L</span>
+                                    <span class="recommend-desc">원핸드 컴팩트 풀프레임</span>
+                                    <span class="recommend-price">3,090,000원</span>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="recommend-img-container">
+                                    <img class="recommend-img" src="assets/img/ILCE-7M4_1.png" />
+                                    <span class="recommend-title">ILCE-7CM2L</span>
+                                    <span class="recommend-desc">원핸드 컴팩트 풀프레임</span>
+                                    <span class="recommend-price">3,090,000원</span>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="recommend-img-container">
+                                    <img class="recommend-img" src="assets/img/ILCE-7M4_1.png" />
+                                    <span class="recommend-title">ILCE-7CM2L</span>
+                                    <span class="recommend-desc">원핸드 컴팩트 풀프레임</span>
+                                    <span class="recommend-price">3,090,000원</span>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="recommend-img-container">
+                                    <img class="recommend-img" src="assets/img/ILCE-7M4_1.png" />
+                                    <span class="recommend-title">ILCE-7CM2L</span>
+                                    <span class="recommend-desc">원핸드 컴팩트 풀프레임</span>
+                                    <span class="recommend-price">3,090,000원</span>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="recommend-img-container">
+                                    <img class="recommend-img" src="assets/img/ILCE-7M4_1.png" />
+                                    <span class="recommend-title">ILCE-7CM2L</span>
+                                    <span class="recommend-desc">원핸드 컴팩트 풀프레임</span>
+                                    <span class="recommend-price">3,090,000원</span>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="recommend-img-container">
+                                    <img class="recommend-img" src="assets/img/ILCE-7M4_1.png" />
+                                    <span class="recommend-title">ILCE-7CM2L</span>
+                                    <span class="recommend-desc">원핸드 컴팩트 풀프레임</span>
+                                    <span class="recommend-price">3,090,000원</span>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="recommend-img-container">
+                                    <img class="recommend-img" src="assets/img/ILCE-7M4_1.png" />
+                                    <span class="recommend-title">ILCE-7CM2L</span>
+                                    <span class="recommend-desc">원핸드 컴팩트 풀프레임</span>
+                                    <span class="recommend-price">3,090,000원</span>
+                                </div>
+                            </swiper-slide>
+                        </swiper-container> 
+                            <!-- 
+                            <li class="swiper-slide-rcmd">
+                                <a href="">
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                             -->
+                            <!-- 
+                            <li class="swiper-slide-rcmd">
+                                <a href="">
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                            <li class="swiper-slide-rcmd">
+                                <a href="">
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                            <li class="swiper-slide-rcmd">
+                                <a href="">
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                             -->
+                            <!--  <li class="swiper-slide-rcmd">
+                                <a href="">
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li>
+                            <li class="swiper-slide-rcmd">
+                                <a href="">
+                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
+                                    <p class="prd-name tit"> ILCE-7M4 </p>
+                                    <p class="prd-text"> THE CAMERA </p>
+                                </a>
+                                <p class="price tit"> 3090000원 </p>
+                            </li> -->
+                        <!-- <div class="swiper-pagination-rcmd"></div>
+
+                        <div class="swiper-button-prev-rcmd"></div>
+                        <div class="swiper-button-next-rcmd"></div>
+
+                        <div class="swiper-scrollbar-rcmd"></div> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+
+            <!-- 진행중인 기획전 -->
+            <!-- 
+            <div class="product-content-exhibitions">
+                <div class="exhb-tit"> 진행중인 기획전 </div>
+                <div class="exhb-cont-container">
+                    <div class="img-wrapper"> <img src="assets/img/Event-List-Banner.jpg"/> </div>
+                    <p class="exhb-text"> 사진도, 영상도 ZV로 완벽하게 </p>
+                    <p class="exhb-date"> 2024-08-12 ~ 2024-12-01 </p>
+                </div>
+            </div>
+             -->
+            <!-- sony link -->
+            <!-- 
+            <div class="product-content-sony-link">
+                <div >
+                    <ul class="sony-link-container">
+                        <li>
+                            <a class="sony-link-inner">
+                                <div class="img-wrapper"> <img src="assets/img/ico__relation_alpha.png" /> </div>
+                                <div class="tit"> 소니 알파 유니버스 </div>
+                                <span class="icon"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sony-link-inner">
+                                <div class="img-wrapper"> <img src="assets/img/ico__relation_alpha.png" /> </div>
+                                <div class="tit"> 소니 알파 유니버스 </div>
+                                <span class="icon"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="sony-link-inner">
+                                <div class="img-wrapper"> <img src="assets/img/ico__relation_alpha.png" /> </div>
+                                <div class="tit"> 소니 알파 유니버스 </div>
+                                <span class="icon"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             -->
+            <!-- content -->
+            <div class="product-content">
+                <!--제품개요/상세/배송,환불규정  TAB-->
+                
+                <div class="detail-tab">
+                    <div class="tab-menu outline active">
+                        <div class="text"> 제품 개요 </div>
+                        <div class="bottom-line"></div>
+                    </div>
+                    <div class="tab-menu detail">
+                        <div class="text"> 제품 상세 </div>
+                        <div class="bottom-line"></div>
+                    </div>
+                    <div class="tab-menu refund">
+                        <div class="text"> 배송/환불규정 </div>
+                        <div class="bottom-line"></div>
+                    </div>
+                </div>
+                
+                <!-- TAB - INFO -->
+                <div class="detail-info-zone">
+                    <!--제품개요-->
+                    
+                    <div class="tab-zone outline active">
+
+                        <div class="pad benefit-zone-container"> 
+                            <div class="benefit-zone"> <img src="assets/img/pc_benefit.jpg"/> </div> 
+                        </div>
+
+                        <div class="outline-content"> 
+                            <div class="sony-content pad"> 
+                                <img src="assets/img/zv-e10m2_960_1.jpg"/> 
+                            </div>
+                            <div class="video-wrap pad"> 
+                                <iframe width="960" height="540" src="https://www.youtube.com/embed/JXDZVOCB4Ts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> 
+                            </div>
+                            <div class="sony-content-moving pad"> 
+                                <img src="assets/img/zv-e10m2_360_960.webp" alt="제품 개요"/> 
+                            </div>
+                            <div class="sony-content-detail pad"> 
+                                <img src="assets/img/zv-e10m2_960_2.jpg" alt="제품 개요"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--제품상세-->
+                    
+                    <div class="tab-zone detail">
+
+                        <div class="pad detail-box-container"> 
+                            <div class="detail-box"> <img src="assets/img/zv-e10m2_960_spec.gif"/> </div> 
+                        </div>
+
+                    </div> 
+                   
+                    <!--배송/환불규정-->
+                    
+                    <div class="tab-zone refund">
+                        <h2 class="common__title h2">배송 / 환불 규정</h2>
+
+                        <h3 class="common__title h3">교환 / 반품 안내 및 보증 조건과 절차</h3>
+                        <div class="common__table__wrap">
+                            <table class="common__table">
+                                <colgroup>
+                                    <col width="23.5%">
+                                    <col width="76.5%">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row">교환 / 반품 기준</th>
+                                    <td>
+                                        <ul class="dot_list">
+                                        <li>고객 변심으로 인한 교환/반품은 상품을 수령하신 날로부터 7일 이내에 신청 가능합니다.</li>
+                                        <li>반품 시 제공된 사은품은 모두 회수하며 회수가 되지 않을 경우 교환/반품이 불가능합니다.</li>
+                                        <li>교환/환불 시 제품 특성에 따라 처리 소요시간이 상이할 수 있습니다.</li>
+                                        <li>교환은 동일한 상품만 가능하며, 다른 상품으로 교환을 원하실 경우 해당 상품을 주문취소 후 재주문하여 주시기 바랍니다.<br>(색상변경 포함)</li>
+                                        <li>전자상거래 등에서의 소비자 보호에 관한 법률로 규정되어 있는 소비자 청약철회 가능 범위에 해당하는 경우 신청 가능합니다.</li>
+                                        <li>퀵배송 등으로 주문하신 상품과 설치상품의 교환/반품 접수는 고객지원센터(1588-0911)로 연락주시기 바랍니다.</li>
+                                        </ul>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">교환 / 반품 불가사유</th>
+                                    <td>
+                                        <ul class="dot_list">
+                                        <li>포장을 개봉하여 사용하거나 또는 설치가 완료되어 상품들의 가치가 훼손된 경우</li>
+                                        <li>고객님의 단순변심으로 인한 교환/반품 요청이 상품을 수령한 날로부터 7일을 경과한 경우</li>
+                                        <li>고객님의 귀책사유로 상품 등의 가치가 파손되거나 훼손된 경우</li>
+                                        <li>배송된 상품이 하자없음을 확인한 후 설치가 완료된 상품의 경우</li>
+                                        <li>기타 ‘전자상거래 등에서의 소비자보호에 관한 법률’이 정하는 청약철회 제한 사유에 해당되는 경우</li>
+                                        </ul>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">품질보증기준 및 AS 안내</th>
+                                    <td>
+                                        <ul class="dot_list">
+                                        <li>품질보증기준 : 제품별 별도표기</li>
+                                        <li>A/S 관련 전화번호 : 고객지원센터 1588-0911</li>
+                                        </ul>
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="common__title h3">배송안내</h3>
+                        <div class="common__table__wrap">
+                            <table class="common__table" role="presentation">
+                              <caption>배송안내 등의 정보</caption>
+                              <colgroup>
+                                <col width="23.5%">
+                                <col width="76.5%">
+                              </colgroup>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">배송방법</th>
+                                  <td>택배 배송 (설치상품일 경우, 업체에서 직접 방문하여 설치해드립니다.)</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">배송가능지역</th>
+                                  <td>전국</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">배송비</th>
+                                  <td>
+                                    <ul class="dot_list">
+                                      <li>포장을 개봉하여 사용하거나 또는 설치가 완료되어 상품들의 가치가 훼손된 경우</li>
+                                      <li>고객님의 단순변심으로 인한 교환/반품 요청이 상품을 수령한 날로부터 7일을 경과한 경우</li>
+                                    </ul>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">배송기일</th>
+                                  <td>
+                                    <ul class="dot_list">
+                                      <li>결제일 다음날부터 3~5일 이내 (일요일, 공휴일, 정기휴무 제외) 발송됩니다.</li>
+                                      <li>예약판매 상품 등 일부 상품에 대해서는 상품 수급 또는 운송업체의 사정에 따라 배송이 지연될 수 있습니다.</li>
+                                    </ul>
+                                  </td>
+                                </tr>
+                        
+                                <tr>
+                                  <th scope="row">교환 / 반품 기준</th>
+                                  <td>
+                                    <ul class="dot_list">
+                                      <li>품질보증기준 : 제품별 별도표기</li>
+                                      <li>A/S 관련 전화번호 : 고객지원센터 1588-0911</li>
+                                    </ul>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="common__title h3 bottom1">거래약관<h3 class="common__title h3 bottom2">배송안내</h3></h3>
+                        
+                        <p class="s_txt">웹사이트 하단의 이용약관을 참조하세요.</p>
+                    </div>
+                    
+                </div> 
+               
+            </div>
+        
+        </div>
+    </div>
+
+    <script>loadHTML("./footer.html");</script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
+    <!-- <script src="assets/js/MathHyeon.js"></script> -->
+    <script src="assets/js/ArrayHyeon.js"></script>
+
+    <script src="assets/js/View.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.13.1/sweetalert2.all.min.js"></script>
+    <script src="assets/js/common.js"></script>
+ 
+
+</body>
+</html>
