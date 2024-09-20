@@ -1,72 +1,150 @@
-{ "product": { 
-    "camera": { 
-      "lens_change": {
-          "full_frame": [
-              {
-                  "id": 3,
-                  "thumbnail": "camera3.png",
-                  "title": "ILCE-9M3",
-                  "info": "The Power of One Frame",
-                  "price": 7980000,
-                  "type": "ILC",
-                  "frame": "full-frame",
-                  "date": 202401
-              },
-              {
-                  "id": 4,
-                  "thumbnail": "camera4.png",
-                  "title": "ILCE-7CM2",
-                  "info": "원핸드 컴팩트 풀프레임",
-                  "price": 2690000,
-                  "type": "ILC",
-                  "frame": "full-frame",
-                  "date": 202309,
-                  "color": [ "grey", "black" ]
-              }
-          ],
-          "APS-C": [
-              {
-                  "id": 1,
-                  "thumbnail": "camera1.png",
-                  "title": "ZV-E10M2",
-                  "info": "기록의완성",
-                  "price": 1340000,
-                  "type": "ILC",
-                  "frame": "APS-C",
-                  "date": 202407,
-                  "color": [ "black", "white" ]
-              },
-              {
-                  "id": 2,
-                  "thumbnail": "camera2.png",
-                  "title": "ZV-E10M2K",
-                  "info": "기록의완성",
-                  "price": 1490000,
-                  "type": "ILC",
-                  "frame": "APS-C",
-                  "date": 202407,
-                  "color": [ "white", "black" ]
-              }
-          ]
-      },
-      "compact": [
-          {
-              "id": 5,
-              "thumbnail": "camera5.png",
-              "title": "ZV-1F",
-              "info": "나를 담는 브이로그 카메라 ZV-1F",
-              "price": 759000,
-              "type": "compact",
-              "date": 202208
-          }
-      ]
-    }, 
+{ "products": { 
+        "camera": { 
+        "lens_change": {
+            "full_frame": [
+                {
+                    "id": 3,
+                    "thumbnail": "clr0_0.png",
+                    "title": "ILCE-9M3",
+                    "info": "The Power of One Frame",
+                    "price": 7980000,
+                    "date": 202401,
+                    "color": ["black"]
+                },
+                {
+                    "id": 4,
+                    "thumbnail": "clr0_0.png",
+                    "title": "ILCE-7CM2",
+                    "info": "원핸드 컴팩트 풀프레임",
+                    "price": 2690000,
+                    "date": 202309,
+                    "color": [ "silver", "black" ]
+                }
+            ],
+            "APS-C": [
+                {
+                    "id": 1,
+                    "thumbnail": "clr0_0.png",
+                    "title": "ZV-E10M2",
+                    "info": "기록의완성",
+                    "price": 1340000,
+                    "date": 202407,
+                    "color": [ "black", "white" ]
+                },
+                {
+                    "id": 2,
+                    "thumbnail": "clr0_0.png",
+                    "title": "ZV-E10M2K",
+                    "info": "기록의완성",
+                    "price": 1490000,
+                    "date": 202407,
+                    "color": [ "white", "black" ]
+                }
+            ]
+        },
+        "compact": [
+            {
+                "id": 5,
+                "thumbnail": "clr0_0.png",
+                "title": "ZV-1F",
+                "info": "나를 담는 브이로그 카메라 ZV-1F",
+                "price": 759000,
+                "date": 202208
+            }
+        ]
+        }, 
 
-    "video": {
-      "cinema": [ {}, {}, {} ],
-      "camcorder": { 
-          "4k_handy": [ {}, {}, {} ], 
-          "4k_handheld": [ {}, {}, {} ] }
-    } 
-  }
+        "video": {
+        "cinema": [ 
+            {
+                "id": 1,
+                "thumbnail": "video1.png",
+                "title": "BURANO",
+                "info": "풀프레임 8.6K 시네마 카메라",
+                "price": 36990000,
+                "date": 202402
+            }, 
+            {
+                "id": 2,
+                "thumbnail": "video2.png",
+                "title": "ILME-FR7",
+                "info": "시네마라인 렌즈교환식 PTZ 카메라",
+                "price": 14990000,
+                "date": 202211
+            }, 
+            {
+                "id": 3,
+                "thumbnail": "video3.png",
+                "title": "ILME-FX30B (바디킷)",
+                "info": "시네마라인 Super 35mm 카메라 (바디 킷)",
+                "price": 2699000,
+                "date": 202210
+            } ],
+        "camcorder": { 
+            "4k_handy": [ 
+                {
+                    "id": 4,
+                    "thumbnail": "video4.png",
+                    "title": "FDR-AX43A",
+                    "info": "콘텐츠 크리에이터를 위한 4K 캠코더",
+                    "price": 1449000,
+                    "date": 202206
+                }, 
+                {
+                    "id": 5,
+                    "thumbnail": "video5.png",
+                    "title": "FDR-AX700",
+                    "info": "4K HDR(HLG), Fast Hybrid AF가 탑재된 전문가급 1인치 핸디캠",
+                    "price": 2499000,
+                    "date": 201710
+                } ], 
+            "4k_handheld": [ 
+                {
+                    "id": 6,
+                    "thumbnail": "video6.png",
+                    "title": "HXR-NX800 + UWP-D27",
+                    "info": "바디 본품 + UWP-D27 마이크 번들 구성",
+                    "price": 5820000,
+                    "date": 202409
+                }, 
+                {
+                    "id": 7,
+                    "thumbnail": "video7.png",
+                    "title": "PXW-Z200 + UWP-D27",
+                    "info": "바디 본품 + UWP-D27 마이크 번들 구성",
+                    "price": 6690000,
+                    "date": 202409
+                } 
+                ] 
+            }
+        } 
+
+    },
+
+    "productList": [
+    { 
+        "prodName": "Camera",
+        "prodImg": "main_product_img_1.png",
+        "category": "camera"
+    },
+    { 
+        "prodName": "Video Camera",
+        "prodImg": "main_product_img_2.png",
+        "category": "video"
+    },
+    { 
+        "prodName": "Lens",
+        "prodImg": "main_product_img_3.png",
+        "category": "#"
+    },
+    { 
+        "prodName": "Audio",
+        "prodImg": "main_product_img_4.png",
+        "category": "#"
+    }
+]
 }
+
+
+
+
