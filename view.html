@@ -29,55 +29,35 @@
 
         <div class="product-view-wrap">    
 
-            <div class="product-view-main">         <!-- flex 좌측 우측 -->
+            <div class="product-view-main">   <!-- flex 좌측 우측 나누기 -->
                 
-                <!-- 메인 좌측 - 사진 슬라이드 -->
-                  <!-- flex width 58% -->
-                    
+                <!-- 메인 좌측 - 사진 슬라이드 --> <!-- flex width 58% -->
+                                      
                 <div class="product-main-slider">      
-                    <swiper-container class="view_swiper" navigation="true" pagination="true" loop="true">
+                    <swiper-container class="view_swiper" navigation="true" pagination="true">
+                        <!-- 
+                        <swiper-slide class="hidden"><div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div></swiper-slide>
                         <swiper-slide><div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div></swiper-slide>
                         <swiper-slide><div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div></swiper-slide>
-                        <swiper-slide><div class="img-container"> <img class="main-img" src="assets/img/ILCE-7M4_1.png" /> </div></swiper-slide>
+                         -->
                     </swiper-container>
                 </div>
 
                 
-                <!-- 
-                <div class="product-main-slider">
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            
-                            <div class="swiper-slide s1">  </div>
-                            <div class="swiper-slide s2">Slide 2</div>
-                            <div class="swiper-slide s3">Slide 3</div>
-                        </div>
-
-                        <div class="swiper-pagination"></div>
-
-                        <div class="swiper-button-prev swiper-nav"></div>
-                        <div class="swiper-button-next swiper-nav"></div>
-
-                        <div class="swiper-scrollbar"></div>
-                    </div>
-                </div>
- -->
-                
-                <!-- 메인 우측 - 구매관련 -->
-                <div class="product-view-about">  
+                <!-- 메인 우측 - 구매관련 -->  
+                <div class="product-view-about">    <!-- flex width 42% -->
                     
                     <!-- 상품명 -->
                     <div class="product-cont-top">  
                         <div>
                             <!-- <div class="flag"> NEW </div> -->
                             <div class="prd-name"> ZV-E10M3 </div>
-                            <div class="prd-text"> 기록의 완 </div>
-                            <div class="prd-desc"> <div class="icon"></div> <p>이 제품은 기획전을 통해 구매하시면 더 많은 혜택을 받으실 수 있습니다.</p> </div>    
+                            <div class="prd-text"> 기록의 완성 </div>
+                            <div class="prd-desc"> <div class="icon"></div> <p>이 제품은 기획전을 통해 구매하시면 더 많은 혜택을 받으실 수 있습니다. </p> </div>    
                         </div>
                         <div><a class="share"></a></div>
-
-                        <!-- <div class="share"> </div>     -->
                     </div>
+                    
                     <!-- 가격, 무료배송 -->
                     <div class="product-cont">  
                         <div class="product-price">
@@ -87,8 +67,10 @@
                             <div class="delivery-txt"> 무료배송 </div>
                         </div>                        
                     </div>
+                    
                     <!-- 구분선 -->
                     <div class="divider-light"></div>
+                   
                     <!-- 회원별 마일리지 적립혜택-->
                     <div class="product-cont member"> 
                         <div class="tit"> 회원별 마일리지 적립혜택 <span class="icon-question">!</span> </div>
@@ -109,8 +91,10 @@
                             </li>
                         </ul>
                     </div>
+
                     <!-- 구분선 -->
                     <div class="divider-light"></div>
+
                     <!-- 색상 -->
                     <div class="product-cont-color-select">
                         <!-- 
@@ -137,6 +121,7 @@
                         </div>
                          -->
                     </div>
+
                     <!-- 제품선택 -->
                     <div class="product-cont prd-select-wrap">
                         <div class="prd-select-inner">
@@ -213,8 +198,10 @@
                             </div>
                             
                         </div>
+
                         <!-- 구분선 -->
                         <div class="divider-bold"></div>
+
                         <!-- 총 상품금액 -->
                         <div class="result-list">
                             <div class="result-chk-box">
@@ -230,21 +217,22 @@
                                 </p>
                             </div>
                         </div>
+
                         <!-- 찜, 장바구니, 선물하기, 구매하기 -->
                         <div class="result-btn-inner">
                             <div class="result-btn-box">
                                 <ul>
-                                    <li class="heart btn-icon-container">
-                                        <!-- <a href="" class="btn-icon"></a> -->
-                                    </li>
+                                    <li class="heart btn-icon-container"> <!-- <a href="" class="btn-icon"></a> --> </li>
                                     <li class="cart btn-icon-container"></li>
                                     <li class="gift btn-icon-container"></li>
+                                    
                                     <li class="final"> 
                                         <a> 바로 구매하기 </a> 
                                     </li>
                                 </ul>
                             </div>
                         </div>
+
                     </div>
                 </div>                
             </div>
@@ -324,70 +312,12 @@
                             </swiper-slide>
                              -->
                         </swiper-container> 
-                            <!-- 
-                            <li class="swiper-slide-rcmd">
-                                <a href="">
-                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
-                                    <p class="prd-name tit"> ILCE-7M4 </p>
-                                    <p class="prd-text"> THE CAMERA </p>
-                                </a>
-                                <p class="price tit"> 3090000원 </p>
-                            </li>
-                             -->
-                            <!-- 
-                            <li class="swiper-slide-rcmd">
-                                <a href="">
-                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
-                                    <p class="prd-name tit"> ILCE-7M4 </p>
-                                    <p class="prd-text"> THE CAMERA </p>
-                                </a>
-                                <p class="price tit"> 3090000원 </p>
-                            </li>
-                            <li class="swiper-slide-rcmd">
-                                <a href="">
-                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
-                                    <p class="prd-name tit"> ILCE-7M4 </p>
-                                    <p class="prd-text"> THE CAMERA </p>
-                                </a>
-                                <p class="price tit"> 3090000원 </p>
-                            </li>
-                            <li class="swiper-slide-rcmd">
-                                <a href="">
-                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
-                                    <p class="prd-name tit"> ILCE-7M4 </p>
-                                    <p class="prd-text"> THE CAMERA </p>
-                                </a>
-                                <p class="price tit"> 3090000원 </p>
-                            </li>
-                             -->
-                            <!--  <li class="swiper-slide-rcmd">
-                                <a href="">
-                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
-                                    <p class="prd-name tit"> ILCE-7M4 </p>
-                                    <p class="prd-text"> THE CAMERA </p>
-                                </a>
-                                <p class="price tit"> 3090000원 </p>
-                            </li>
-                            <li class="swiper-slide-rcmd">
-                                <a href="">
-                                    <div class="img-wrapper"> <img src="assets/img/ILCE-7M4_1.png"/> </div>
-                                    <p class="prd-name tit"> ILCE-7M4 </p>
-                                    <p class="prd-text"> THE CAMERA </p>
-                                </a>
-                                <p class="price tit"> 3090000원 </p>
-                            </li> -->
-                        <!-- <div class="swiper-pagination-rcmd"></div>
-
-                        <div class="swiper-button-prev-rcmd"></div>
-                        <div class="swiper-button-next-rcmd"></div>
-
-                        <div class="swiper-scrollbar-rcmd"></div> -->
-                    <!-- </div> -->
+                            
                 </div>
             </div>
 
             <!-- 진행중인 기획전 -->
-            <!-- 
+            
             <div class="product-content-exhibitions">
                 <div class="exhb-tit"> 진행중인 기획전 </div>
                 <div class="exhb-cont-container">
@@ -396,9 +326,9 @@
                     <p class="exhb-date"> 2024-08-12 ~ 2024-12-01 </p>
                 </div>
             </div>
-             -->
+            
             <!-- sony link -->
-            <!-- 
+            
             <div class="product-content-sony-link">
                 <div >
                     <ul class="sony-link-container">
@@ -426,7 +356,7 @@
                     </ul>
                 </div>
             </div>
-             -->
+            
             <!-- content -->
             <div class="product-content">
                 <!--제품개요/상세/배송,환불규정  TAB-->
@@ -449,7 +379,7 @@
                 <!-- TAB - INFO -->
                 <div class="detail-info-zone">
                     <!--제품개요-->
-                    <!-- 
+                    
                     <div class="tab-zone outline active">
 
                         <div class="pad benefit-zone-container"> 
@@ -471,7 +401,7 @@
                             </div>
                         </div>
                     </div>
-                     -->
+                    
                     <!--제품상세-->
                     
                     <div class="tab-zone detail">
@@ -599,15 +529,12 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js"></script>
-    <!-- <script src="assets/js/MathHyeon.js"></script> -->
     <script src="assets/js/ArrayHyeon.js"></script>
-
-    <script src="assets/js/View.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.13.1/sweetalert2.all.min.js"></script>
     <script src="assets/js/common.js"></script>
- 
-
+    <script src="assets/js/View.js"></script>
+    
 </body>
 </html>

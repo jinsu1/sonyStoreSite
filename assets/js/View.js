@@ -34,55 +34,82 @@ const clr_name = clr => {
 };
 
 ( async () => {
+
     const params = utilHelper.getQuery();       
-    console.log(params);
+    //console.log(`params : ${params}`);
     //const params = {"id":1,"path1":"camera","path2":"lens_change","path3":"APS-C"};
     //const paramsArr = Object.values(params);
     
     const paramsArr = Object.values(params).slice(1); // id 값 제외
+    //console.log(paramsArr);
 
-    const curPageId = params.id; 
+    const curId = params.id; 
 
-    if ( !curPageId ) {
+    if ( !curId ) {
         alert("제품이 없습니다");
         history.back();
         return;
     }
 
     let response = null;
+    let products, item;
 
     try {
-        response = await axios.get('http://localhost:3001/products');
+        //  전체 json 조회
+        response = await axios.get('http://localhost:3001/products');   //console.log(response.data);
         
         //  paramsArr 요소로 백엔드 json 접근
-        const responseData = paramsArr.reduce((acc, key) => {
+        products = paramsArr.reduce((acc, key) => {
             return acc[key]; // 각 단계에서 접근
         }, response.data);
-
-        //console.log(responseData);
-        //  접근한 배열에서 현재 제품의 id만 가져오기
-        const item = responseData.find(item => item.id == curPageId);
-
-        response.data = item;
-        //console.log(response.data);
+        //console.log(products);
+   
+        //  접근한 배열에서 현재 제품의 id가 포함된 객체 가져오기
+        //response.data = products.find(item => item.id == curId);
+        item = products.find(item => item.id == curId);
+        //console.log(item);
 
     } catch (e) {
         console.error(e);
         alert("요청 실패");
         return;
     }
-     
-    const colorArr = response.data.color;
-    document.querySelector(".main-img").setAttribute( "src", `assets/img/camera${curPageId}/clr0_0.png` );
     
+    const colorArr = item.color;    
+    const imgArr = item.img;
+    
+
+
+    /* -- -- -- 메인 좌측 - 슬라이더 -- -- -- */
+   
+    const swiperContainerViewSwiper = document.querySelector('.view_swiper');
+    //  이미지 개수 별로 슬라이드 생성 
+     
+    for ( let i=0; i<imgArr[0].length; i++ ) {
+        const swiperSlide = document.createElement('swiper-slide');
+
+        const div = document.createElement('div');
+        div.classList.add('img-container');
+
+        const img = document.createElement('img');
+        img.classList.add('main-img');
+        img.setAttribute( 'src', `assets/img/${paramsArr[0]}${curId}/${imgArr[0][i]}` );
+
+        div.appendChild(img);
+        swiperSlide.appendChild(div);
+        swiperContainerViewSwiper.appendChild(swiperSlide);
+        //viewSwiper.appendSlide(swiperSlide);
+    }    
+    //viewSwiper.update(); 
+
 
     /* -- -- -- 메인 우측 - 구매관련 -- -- -- */
-
-    document.querySelector(".prd-name").innerHTML = response.data.title;
     
-    document.querySelector(".prd-text").innerHTML = response.data.info;
+    document.querySelector(".prd-name").innerHTML = item.title;
     
-    const camPrice = response.data.price;
+    document.querySelector(".prd-text").innerHTML = item.info;
+    
+    const camPrice = item.price;
     document.querySelector(".cam-price").innerHTML = camPrice.toLocaleString();
 
     document.querySelector(".vip-mlg").innerHTML = (camPrice*0.04).toLocaleString();
@@ -156,15 +183,17 @@ const clr_name = clr => {
                         v2.classList.remove('active');
                     }
                 } );
-                //let clrNum = `clr${i}`;
-                //const img = `response.data.img.${clrNum}[0]`; console.log(img);
-                document.querySelector(".main-img").setAttribute( "src", `assets/img/camera${curPageId}/clr${i}_${[0]}.png` );
+                
+                document.querySelectorAll(".main-img").forEach( (v3,i3) => {
+                    v3.setAttribute( "src", `assets/img/${paramsArr[0]}${curId}/${imgArr[i][i3]}` );
+                } );
+                
                 
             } );
         } );
     }
 
-        /* 제품을 선택하세요 */
+    /* 제품을 선택하세요 */
     const ulSelectInner = document.querySelector('.select-inner');
 
     const colorNum = colorArr.length; 
@@ -192,13 +221,13 @@ const clr_name = clr => {
             span2 = document.createElement('span');
             span2.classList.add('submenu-txt');
             span2.classList.add('pad');
-            span2.innerHTML = `${response.data.title} / ${clr_name(colorName)}`;
+            span2.innerHTML = `${item.title} / ${clr_name(colorName)}`;
         }
         else {
             span2 = document.createElement('span');
             span2.classList.add('submenu-txt');
             span2.classList.add('pad');
-            span2.innerHTML = `제품명: ${response.data.title}`;
+            span2.innerHTML = `제품명: ${item.title}`;
         }
         const a = v.children[0];
         if ( span1 ) a.appendChild(span1);
@@ -210,18 +239,17 @@ const clr_name = clr => {
         ulSelectInner.classList.toggle('active');       
     } );    
 
-        /* -- -- 제품 선택 - 선택된 제품 박스 -- -- */
+    /* -- -- 제품 선택 - 선택된 제품 박스 -- -- */
     
-    //const selectedOpts = [];
-    //let total = 0;
-
-    document.querySelectorAll('.inner-list').forEach( (v,i) => {    // submenu list  선택할 제품 목록
+    const innerList = document.querySelectorAll('.inner-list');     // submenu list  선택할 제품 목록
+    //console.log(innerList.length);
+    innerList.forEach( (v,i) => {    
         
         v.addEventListener( 'click', e => {
             e.preventDefault();
             const current = e.currentTarget;    // 클릭한 선택한 제품 ex) "ILCE-7CM2 / 실버"
             
-            //const createBox = () => {
+            const createBox = () => {
                 const div1 = document.createElement('div');
                 div1.classList.add('selected-opt');
         
@@ -245,9 +273,12 @@ const clr_name = clr => {
                 const div4 = document.createElement('div');
                 div4.classList.add('selected-name');
         
-                const circlePrdClr = current.querySelector('.circle-prd-clr');
+                if ( innerList.length > 1 ) {
+                    const circlePrdClr = current.querySelector('.circle-prd-clr');
+                    div4.appendChild( circlePrdClr.cloneNode(true) );
+                }
+                
                 const submenuTxt = current.querySelector('.submenu-txt');
-                div4.appendChild( circlePrdClr.cloneNode(true) );
                 div4.appendChild( submenuTxt.cloneNode(true) );
                 //console.log(div4);
 
@@ -278,7 +309,7 @@ const clr_name = clr => {
 
                 const div7 = document.createElement('div');
                 div7.classList.add('selected-price');
-                div7.innerHTML = `${(response.data.price).toLocaleString()}원`;
+                div7.innerHTML = `${(item.price).toLocaleString()}원`;
 
                 div5.appendChild(div6);
                 div5.appendChild(div7);
@@ -294,87 +325,127 @@ const clr_name = clr => {
 
                 //selectedOpts.push(div1);
                 //console.log(selectedOpts); // 현재까지 생성된 선택된 옵션 출력
-                
+                 
                 a.addEventListener('click', (e) => {
                     e.preventDefault();
-                    div1.remove(); // 해당 선택된 옵션 삭제
-                     /* 
-                    const index = selectedOpts.indexOf(div1);
-                    if (index > -1) {
-                        selectedOpts.splice(index, 1); // 배열에서도 삭제
-                    }
-                    console.log(selectedOpts); // 현재까지 선택된 옵션 출력
-                     */
-                });
-
-                //total += input.value * response.data.price;
+                    div1.remove(); // 해당 선택된 옵션 삭제                     
+                }); 
                
-           // };  
-            /* 
-            // 중복 선택 방지
-            const existingOpt = document.querySelector(`.selected-opt .${colorArr[i]}`);
+            };  
+
+            //  제품 선택 박스 중복 방지            
+            const existingOpt = Array.from(document.querySelectorAll('.selected-opt')).some(opt => {
+                if ( innerList.length>1 ) {
+                    return opt.querySelector(`.${colorArr[i]}`);
+                } else {
+                    return true;
+                }
+            });
+    
             if (existingOpt) {
                 alert('이미 선택된 옵션입니다.');
-                return;
-            }
-
-            const existingOpt = Array.from(document.querySelectorAll('.selected-opt')).find(v1 => v1.querySelector(`.${colorArr[i]}`) );
-            */
-           /* 
-            if ( document.querySelector('.selected-opt') ) {
-                document.querySelectorAll('.selected-opt').forEach( (v1,i1) => {
-                    if( v1.querySelector(`.${colorArr[i]}`) ) {
-                        //console.log(colorArr[i]);
-                        alert('이미 선택된 옵션입니다.');
-                        return;
-                    } else {
-                        createBox();
-                    }                    
-                } );
             } else {
                 createBox();
             }
-            */
+           
             ulSelectInner.classList.remove('active');
-
-            //document.querySelector('.result-price .num').innerHTML = total.toLocaleString();
         } );
 
         
     } );
-    /* 
-    const prdSelectBox = document.querySelector('.prd-select-box');
-      
-    let observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            console.log(mutation);
- 
-           
-            //const cntBox = document.querySelectorAll('.cnt-box');
-             
-            document.querySelectorAll('.plus').forEach( (v,i) => {
-                v.addEventListener('click', e => {
 
-                });
-            }); 
-                      
-            const selectedPrice = document.querySelectorAll('.selected-price');
-            selectedPrice.forEach( (v,i) => { 
-            
-            let price1 = selectedPrice[0].innerHTML;
-            console.log(price1);
 
-            let cntBox = document.querySelector('.cnt-box').value;
+    /* -- -- 함께 구매하시면 좋은 추천 제품 -- -- */
 
-            let total = price1 * cntBox;
-            }); 
-        });
-    });
-    observer.observe(prdSelectBox, { childList: true });
-      */  
-     
+    /**
+     *  현재 제품과 같은 category(camera, video, lens, ...) 인 객체들을 배열로 반환
+     * @param {object} data  탐색할 object
+     * @param {string} category  category 이름
+     * @returns  array
+     */
+    function getProducts(data, category) {
+        const result = [];
+        
+        // 카테고리에서 데이터 찾기
+        const categoryData = data[category];
+        if (!categoryData) return result;
     
+        // 재귀적으로 탐색하는 내부 함수
+        function searchProducts(obj) {
+            if (Array.isArray(obj)) {
+                result.push(...obj);
+            } else if (typeof obj === 'object' && obj !== null) {
+                for (const value of Object.values(obj)) {
+                    searchProducts(value);
+                }
+            }
+        }
+    
+        // 카테고리 구조 탐색 시작
+        searchProducts(categoryData);
+        return result;
+    }
+    
+    const productList = getProducts( response.data, paramsArr[0] );     //console.log(productList);
+    
+ 
+    //  현재 제품 제외한 제품 배열 dataArr
+    let dataArr;
+    productList.some( (v,i) => {
+        if ( v.id == curId ) {
+            dataArr = arrayHyeon.removeElementAtIndex(productList,i);
+            return true;
+        }
+    } );
+    //  some 메서드   탐색을 중단하는 기능 제공
+    //  콜백함수가 true 리턴하는 순간 전체 반복 중단 
+    //console.log(dataArr);
+ 
+    const randomData = arrayHyeon.shuffleArray(dataArr);
+    //console.log(randomData); 
 
+    //  슬라이드 생성
+
+    const swiperContainer = document.querySelector('.recommendSwiper');
+
+    randomData.forEach( (v,i) => {
+        const swiperSlide = document.createElement('swiper-slide');
+
+        const div = document.createElement('div');
+        div.classList.add('recommend-img-container');
+        
+        const a = document.createElement('a');
+        const qs = queryStringById( response.data, v );     //console.log(qs);  
+        a.setAttribute('href',`view.html?id=${v.id}&${qs}`);
+
+        const img = document.createElement('img');
+        img.classList.add('recommend-img');
+        img.setAttribute('src',`assets/img/${paramsArr[0]}${v.id}/${imgArr[0][0]}` );
+
+        a.appendChild(img);
+        
+        //div.style.backgroundColor = clr_light_grey;
+        
+        const span1 = document.createElement('span');
+        span1.classList.add('recommend-title');
+        span1.innerHTML = v.title;
+        
+        const span2 = document.createElement('span');
+        span2.classList.add('recommend-desc');
+        span2.innerHTML = v.info;
+        
+        const span3 = document.createElement('span');
+        span3.classList.add('recommend-price');
+        span3.innerHTML = v.price.toLocaleString() + '원';
+
+        div.appendChild(a);
+        div.appendChild(span1);
+        div.appendChild(span2);
+        div.appendChild(span3);
+        swiperSlide.appendChild(div);
+        swiperContainer.appendChild(swiperSlide);
+    } );    
+    
 
 })();
 
@@ -395,8 +466,9 @@ function calculateTotal() {
             const count = parseInt(countInput.value, 10);
             total += price * count;
         }
-    });
 
+    });
+    
     totalPrice.textContent = total.toLocaleString();
 }
 
@@ -442,18 +514,6 @@ document.addEventListener('click', (e) => {
 calculateTotal();
 
 
-
-/* 
-setTimeout(() => {
-    const selectedOpt = document.querySelectorAll('.selected-opt');
-    selectedOpt.forEach((v) => {
-        const priceElement = v.querySelector('.selected-price');
-        if (priceElement) {
-            console.log(priceElement.innerHTML);
-        }
-    });
-}, 100);
- */
  
 
 /* -- -- -- 찜, 장바구니, 선물하기, 구매하기 -- -- -- */
@@ -466,91 +526,6 @@ document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
     const iconUrl = `../assets/img/ico_${v.classList[0]}.svg`;
     v.style.background = `url(${iconUrl}) no-repeat center`;
 } );
-
-
-/* -- -- 함께 구매하시면 좋은 추천 제품 -- -- */
-/* 
-( async () => {
-    //const params = utilHelper.getQuery();
-    const params = {id:4};
-
-    const curPageId = params.id;
-
-    if ( !curPageId ) {
-        alert("제품이 없습니다");
-        history.back();
-        return;
-    }
-
-    let response = null;
-
-    try {
-        response = await axios.get(`http://localhost:3001/camera`);
-        //console.log(response.data);
-    } catch (e) {
-        console.error(e);
-        alert("요청 실패");
-        return;
-    }    
-
-    let dataArr;
-    response.data.some( (v,i) => {
-        if ( v.id == curPageId ) {
-            dataArr = arrayHyeon.removeElementAtIndex(response.data,i);
-            return true;
-        }
-    } );
-    //  some 메서드   탐색을 중단하는 기능 제공
-    //  콜백함수가 true 리턴하는 순간 전체 반복 중단 
-    //  console.log(dataArr);
-
-    const randomData = arrayHyeon.shuffleArray(dataArr);
-    console.log(randomData);
-
-    const swiperContainer = document.querySelector('.recommendSwiper');
-
-    randomData.forEach( (v,i) => {
-        const swiperSlide = document.createElement('swiper-slide');
-
-        const div = document.createElement('div');
-        div.classList.add('recommend-img-container');
-        
-        const a = document.createElement('a');
-        a.setAttribute('href',`view.html?id=${v.id}`);
-
-        const img = document.createElement('img');
-        img.classList.add('recommend-img');
-        const randClr =  Math.floor(Math.random() * 2);
-        img.setAttribute('src',`assets/img/camera${curPageId}/clr${randClr}_${[0]}.png` );
-
-        a.appendChild(img);
-        
-        //div.style.backgroundColor = clr_light_grey;
-        
-        const span1 = document.createElement('span');
-        span1.classList.add('recommend-title');
-        span1.innerHTML = v.title;
-        
-        const span2 = document.createElement('span');
-        span2.classList.add('recommend-desc');
-        span2.innerHTML = v.info;
-        
-        const span3 = document.createElement('span');
-        span3.classList.add('recommend-price');
-        span3.innerHTML = v.price.toLocaleString() + '원';
-
-        div.appendChild(a);
-        div.appendChild(span1);
-        div.appendChild(span2);
-        div.appendChild(span3);
-        swiperSlide.appendChild(div);
-        swiperContainer.appendChild(swiperSlide);
-    } );    
-
-
-})();
-
- */
 
 
 

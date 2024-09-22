@@ -54,7 +54,7 @@ a, button {
         width: 42%;
         /* height: 574.63px; */
         /* background-color: rgba(0,0,100,0.1); */
-        padding: 0 120px;
+        padding: 0 100px;
         padding-top: 150px;
 
     }
@@ -63,18 +63,24 @@ a, button {
 /* - - - 메인 좌측 이미지 슬라이더 - - - */
 
 .product-main-slider {
-
+    padding-top: 100px;
+    swiper-slide{
+        padding: 0 10%;
+    }
     .img-container {
-        width: 856px;
-        height: 856px;
+        /* width: 856px;
+        height: 856px; */
         /* margin: auto; */
-
+        /* width: 100%; */
+        /* height: 100%; */
+        /* padding: 0 20%; */
         img {
             width: 100%;
             object-fit: cover;
         }
     }
 }
+
 /* 
 .swiper {
     width: 100%;
@@ -96,8 +102,8 @@ a, button {
 .swiper-rcmd {
     /* width: 100%;
     height: 100%; */
-    width: 1224px;
-    height: 395px;
+    /* width: 1224px;
+    height: 395px; */
     /* 
     .swiper-nav {
         --swiper-navigation-size: 32px;
@@ -106,7 +112,7 @@ a, button {
         --swiper-navigation-color: var(--my-color-black);
     } */
 } 
-
+/* 
 .view_swiper {
     width: 100%;
 
@@ -115,7 +121,7 @@ a, button {
         justify-content: center;
         align-items: center;
     }
-}
+} */
 
 /* - - - - - - - - - 메인 우측 - 구매관련 - - - - - - - */
 .product-view-about {

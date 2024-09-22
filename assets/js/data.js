@@ -238,46 +238,10 @@ window.onload = async (e) => {
         updateProductCount(currentList.length); // 제품 개수 업데이트
     }
 
-    /* 승현 */
-    //  제품별 상위key값 배열로 반환하는 메서드
-    function findParentKeys(data, targetObject) {
-        const parentKeys = [];
-    
-        function recursiveSearch(currentObject, target) {
-            for (const key in currentObject) {
-                if (Array.isArray(currentObject[key])) {
-                    for (const item of currentObject[key]) {
-                        if (item === target) {
-                            parentKeys.unshift(key);
-                            return true;
-                        }
-                    }
-                } else if (currentObject[key] === target) {
-                    parentKeys.unshift(key);
-                    return true;
-                } else if (typeof currentObject[key] === 'object' && currentObject[key] !== null) {
-                    const found = recursiveSearch(currentObject[key], target);
-                    if (found) {
-                        parentKeys.unshift(key);
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-    
-        recursiveSearch(data, targetObject);
-        return parentKeys;
-    }
-    //  상위key값이 원소인 배열을 querystring으로 변환하는 메서드 
-    function createQueryString(keys) {
-        return keys.map((key, index) => `path${index + 1}=${encodeURIComponent(key)}`).join('&');
-    }
-
-
+        
     // 제품 리스트를 화면에 렌더링하는 함수
     function renderProductList(productList) {
-        list_container.innerHTML = ''; // 기존 내용 초기화
+        list_container.innerHTML = ''; // 기존 내용 초기화  
 
         productList.forEach(v => {
             const item = document.createElement("a");
@@ -285,8 +249,8 @@ window.onload = async (e) => {
             
             //  승현
             //console.log(v);
-            const keys = findParentKeys( product, v );      //console.log(keys);
-            const qs = createQueryString(keys);     //console.log(qs);
+            //const keys = findParentKeys( product, v );      //console.log(keys);
+            const qs = queryStringById( product, v );     //console.log(qs);
             
             item.href = `view.html?id=${v.id}&${qs}`;                 
                         
@@ -318,51 +282,51 @@ window.onload = async (e) => {
             item.appendChild(imgContainer);
             
 
-            // 색상 선택 버튼들
-            if (v.color && v.color.length > 1) {
-                const colorButtons = document.createElement("div");
-                colorButtons.classList.add("color-buttons");
+     // 색상 선택 버튼들
+     if (v.color && v.color.length > 1) {
+        const colorButtons = document.createElement("div");
+        colorButtons.classList.add("color-buttons");
 
-                v.color.forEach((color, index) => {
-                    const button = document.createElement("button");
-                    const buttonInner = document.createElement("button");
+        v.color.forEach((color, index) => {
+            const button = document.createElement("button");
+            const buttonInner = document.createElement("button");
 
-                    button.classList.add("color-button");
-                    button.setAttribute("data-color-index", index);
+            button.classList.add("color-button");
+            button.setAttribute("data-color-index", index);
 
-                    // 버튼 배경색을 실제 색상으로 설정
-                    button.style.backgroundColor = color;
+            // 버튼 배경색을 실제 색상으로 설정
+            button.style.backgroundColor = color;
 
-                    if(button.style.backgroundColor == "black") {
-                        button.appendChild(buttonInner);
-                        buttonInner.classList.add("color-button-inner");
-                    }
-
-                    // 마우스 오버 이벤트 리스너
-                    button.addEventListener('mouseover', () => {
-                        img.setAttribute("src", `assets/img/${folderName}/clr${index}_0.png`);
-                    });
-
-                    colorButtons.appendChild(button);
-                });
-
-                item.appendChild(colorButtons);
-            } else {
-                img.style.marginBottom = "24px";
+            if(button.style.backgroundColor == "black") {
+                button.appendChild(buttonInner);
+                buttonInner.classList.add("color-button-inner");
             }
 
-            // 제품 제목
-            const title = document.createElement("h3");
-            title.innerHTML = v.title;
-            item.appendChild(title);
+            // 마우스 오버 이벤트 리스너
+            button.addEventListener('mouseover', () => {
+                img.setAttribute("src", `assets/img/${folderName}/clr${index}_0.png`);
+            });
 
-            // 제품 정보
-            const info = document.createElement("p");
-            info.innerHTML = v.info;
-            item.appendChild(info);
+            colorButtons.appendChild(button);
+        });
 
-            // 제품 가격
-            const price = document.createElement("span");
+        item.appendChild(colorButtons);
+    } else {
+        img.style.marginBottom = "24px";
+    }
+
+    // 제품 제목
+    const title = document.createElement("h3");
+    title.innerHTML = v.title;
+    item.appendChild(title);
+
+    // 제품 정보
+    const info = document.createElement("p");
+    info.innerHTML = v.info;
+    item.appendChild(info);
+
+    // 제품 가격
+    const price = document.createElement("span");
             price.innerHTML = v.price.toLocaleString('ko-KR') + '원'; // 숫자 형태를 한국 스타일의 쉼표 구분 형식으로 변환
             item.appendChild(price);
 
@@ -419,7 +383,6 @@ window.onload = async (e) => {
             e.currentTarget.classList.add("sort_active");
         })
     });
-    
 
     // 카테고리 리스트 클릭 이벤트
     document.querySelector('.category_list .list').addEventListener('click', e => {
