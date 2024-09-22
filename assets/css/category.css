@@ -10,12 +10,16 @@ a {
     background-size: cover;
     position: relative;
     z-index: 1;
-    padding: 110px 0 124px;
+    /* padding: 110px 0 124px; */
     min-height: 400px;
     background-position: center center;
 
     .go_back {
-        display: none;
+        font-size:20px;
+        font-weight: 700;
+        letter-spacing: -.025em;
+        color: #fff;
+        cursor: pointer;
     }
 
     a{
@@ -38,10 +42,12 @@ a {
     }
 
     .category_list {
+        
         .list {
             display: flex;
             justify-content: center;
             align-items: center;
+
             li {
                 margin: 10px;
                 width: 180px;
@@ -72,16 +78,22 @@ a {
     }
 
     .category_link {
-        /* display: flex; */
-        display: none;
-        gap: 20px;
-        margin-top: 98px;
+        max-width: 1200px;
+        margin: 98px auto 20px;
+        text-align: right;
 
         a {
-            display: flex;
-            color: white;
-            font-weight: 700;
-            transform: translateX(64vw); /* 화면의 약 3분의 2 이동 (뷰포트 기준) */
+            display: inline-block;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -.025em;
+            color: #fff;
+            margin-left: 2em;
+        }
+
+        img {
+            transform: translate(20%, 20%);
         }
     }
 }
@@ -130,7 +142,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 80px 30px 40px;
+    margin: 80px 30px 10px;
 
     .list_info{
         display: flex;
@@ -172,7 +184,7 @@ a {
 }
 
 .sort_active {
-    color: #222;
+    color: #222 !important;
     border-bottom: 2px solid #222;
     font-weight:600;
 }
@@ -182,6 +194,7 @@ a {
     flex-wrap: wrap;
     padding: 0 24px;
     width: 100%;
+    margin-bottom: 80px;
     /* margin: 80px 0 160px; */
     justify-content: space-between;
     
@@ -194,7 +207,22 @@ a {
     }
 
     p{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        height: 3em;
+        margin-bottom: 1.125em;
         font-size: 16px;
+        letter-spacing: -.025em;
+        color: #666;
+    }
+
+    span {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0;
+        color: #222;
     }
 
     .item {    
@@ -202,6 +230,7 @@ a {
         flex-direction: column;
         float: left;
         position: relative;
+        margin-top: 24px;
         width: calc(25% - 18px);    
         padding: 32px 40px 56px;
         line-height: 1.5;
@@ -223,6 +252,12 @@ a {
         border: 1px solid #ccc;
         border-radius: 50%;
         cursor: pointer;
+        background-color: #fff !important;
+        margin-left: 3px;
+
+        &:hover {
+            border-color: #000;
+        }
         
         .color-button-inner {
             display: inline-block;
@@ -230,6 +265,13 @@ a {
             height: 14px;
             vertical-align: top;
             border-radius: 50%;
+            background-color: #000;
+            cursor: pointer;
+            border:none;
         }
     }
+}
+
+.display_none {
+    display:none !important;
 }
