@@ -523,7 +523,7 @@ document.querySelectorAll('.btn-icon-container').forEach( (v,i) => {
     a.classList.add('btn-icon');
     v.appendChild(a);
 
-    const iconUrl = `../assets/img/ico_${v.classList[0]}.svg`;
+    const iconUrl = `./assets/img/ico_${v.classList[0]}.svg`;
     v.style.background = `url(${iconUrl}) no-repeat center`;
 } );
 
