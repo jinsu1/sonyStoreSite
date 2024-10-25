@@ -1,22 +1,80 @@
 :root {
-    --my-color-light-grey: #fbfbfb;
-    --my-color-light-grey-2: #ddd;
-    --my-color-light-grey-3: #ccc;
-    --my-color-grey: #999;
-    --my-color-grey-2: #888;
-    --my-color-grey-3: #666;
-    --my-color-sony-purple: #5865f5;
-    --my-color-black: #222;
-    --my-color-orange: rgb(255, 78, 0);
-    --my-color-silver: rgb(181, 181, 181);
-    --my-color-light-blue: #f4f7fa;
+
+    /* color */
+    --color-white: #fff;
+    --color-light-grey: #fbfbfb;
+    --color-light-grey-2: #ddd;
+    --color-light-grey-3: #ccc;
+    --color-grey: #999;
+    --color-grey-2: #888;
+    --color-grey-3: #666;
+    --color-blue: #5865f5;
+    --color-black: #000;
+    --color-black-2: #111;
+    --color-black-3: #222;
+    --color-orange: rgb(255, 78, 0);
+    --color-silver: rgb(181, 181, 181);
+    --color-light-blue: #f4f7fa;
+
+    /* animation */
+    --animation-duration: 300ms;
+
+    /* font */
+    --font-size-48: 48px;
+    --font-size-40: 40px;
+    --font-size-32: 32px;
+    --font-size-24: 24px;
+    --font-size-22: 22px;
+    --font-size-20: 20px;
+    --font-size-18: 18px;
+    --font-size-16: 16px;
+    --font-size-14: 14px;
+    --font-size-12: 12px;
+    
 }
+
+.font-48-700 {
+    font-size: var(--font-size-48);
+    font-weight: 700;
+}
+
+.font-40-700 {
+    font-size: var(--font-size-40);
+    font-weight: 700;
+}
+
+.font-32-700 {
+    font-size: var(--font-size-32);
+    font-weight: 700;
+}
+
+.font-24-700 {
+    font-size: var(--font-size-24);
+    font-weight: 700;
+}
+
+.font-22-700 {
+    font-size: var(--font-size-22);
+    font-weight: 700;
+}
+
+.font-20-500 {
+    font-size: var(--font-size-20);
+    font-weight: 500;
+}
+
+.font-16-500 {
+    font-size: var(--font-size-16);
+    font-weight: 500;
+}
+
+
 
 * {
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: "Noto Sans KR";
+    font-family: 'Noto Sans KR', serif;
 }
 a, button {
     cursor: pointer;
@@ -36,7 +94,7 @@ a, button {
     font-weight: 700;
     line-height: 21px;
     letter-spacing: -.4px;
-    color: var(--my-color-black);
+    color: var(--color-black-3);
 }
 
 /* - - - - - 좌측 우측 flex 조절 - - - - - */
@@ -48,7 +106,7 @@ a, button {
         width: 58%;
         /* height: 574.63px; */
         /* overflow: hidden; */
-        background-color: var(--my-color-light-blue);
+        background-color: var(--color-light-blue);
     }
     .product-view-about {
         width: 42%;
@@ -90,7 +148,7 @@ a, button {
         --swiper-navigation-size: 32px;
         --swiper-navigation-top-offset: 50%;
         --swiper-navigation-sides-offset: 60px;
-        --swiper-navigation-color: var(--my-color-black);
+        --swiper-navigation-color: var(--color-black-3);
     }
 }
 
@@ -109,7 +167,7 @@ a, button {
         --swiper-navigation-size: 32px;
         --swiper-navigation-top-offset: 50%;
         --swiper-navigation-sides-offset: 60px;
-        --swiper-navigation-color: var(--my-color-black);
+        --swiper-navigation-color: var(--color-black-3);
     } */
 } 
 /* 
@@ -148,7 +206,7 @@ a, button {
             font-size: 18px;
             line-height: 24px;
             letter-spacing: -.45px;
-            color: var(--my-color-grey-2);
+            color: var(--color-grey-2);
         }
         .prd-desc {
             .icon {
@@ -166,7 +224,7 @@ a, button {
                 padding-left: 18px;
                 font-size: 12px;
                 letter-spacing: -.3px;
-                color: var(--my-color-sony-purple);
+                color: var(--color-blue);
             }
         }
         .share {
@@ -195,7 +253,7 @@ a, button {
             font-weight: 700;
             line-height: 36px;
             letter-spacing: -.35px;
-            color: var(--my-color-sony-purple);
+            color: var(--color-blue);
             margin-left: auto;
         }
     }
@@ -243,7 +301,7 @@ a, button {
                     font-size: 12px;
                     font-weight: bold;
                 }
-                .vip{ color: var(--my-color-sony-purple); }
+                .vip{ color: var(--color-blue); }
                 .mileage{
                     font-size: 14px;
                     font-weight: bold;
@@ -335,7 +393,7 @@ a, button {
     }
     &.silver {
         .c-bg{
-            background-color: var(--my-color-silver);
+            background-color: var(--color-silver);
         }
     }
 }
@@ -352,12 +410,12 @@ a, button {
     display: block;
     /* position: relative; */
     padding: 5px 15px;
-    border: 1px solid var(--my-color-light-grey-2);
+    border: 1px solid var(--color-light-grey-2);
     /* background: #fff; */
     font-size: 14px;
     font-weight: 300;
     line-height: 22px;
-    color: var(--my-color-grey-3);
+    color: var(--color-grey-3);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -382,7 +440,7 @@ a, button {
         border-top: none;
         font-size: 16px;
         line-height: 22px;
-        color: var(--my-color-black);
+        color: var(--color-black-3);
 
         &.active { display: block;}
     }    
@@ -396,7 +454,7 @@ a, button {
 .inner-list, .selected-name{
     height: 44px;
     line-height: 44px;
-    background-color: var(--my-color-light-grey);
+    background-color: var(--color-light-grey);
     cursor: pointer;
 
     .pad {
@@ -419,8 +477,8 @@ a, button {
 
 
 .selected-opt-container {
-    border: 1px solid var(--my-color-light-grey-2);
-    background: var(--my-color-light-grey);
+    border: 1px solid var(--color-light-grey-2);
+    background: var(--color-light-grey);
     padding: 20px 15px;
     margin: 15px 0;
 /* 
@@ -465,7 +523,7 @@ a, button {
         .count-container{
             display: flex;
             margin-top: 13px;
-            border: 1px solid var(--my-color-light-grey-2);
+            border: 1px solid var(--color-light-grey-2);
 
             .cnt-box {
                 /* text-indent: -9999px; */
@@ -481,7 +539,7 @@ a, button {
             button {
                 font-size: 25px;
                 line-height: 25px;
-                color: var(--my-color-grey-3);
+                color: var(--color-grey-3);
             }
             input {
                 font-size: 16px;
@@ -555,7 +613,7 @@ a, button {
         text-align: center;
         font-size: 32px;
         font-weight: 700;
-        color: var(--my-color-black);
+        color: var(--color-black-3);
         margin-bottom: 35px;
     }
 
@@ -599,7 +657,7 @@ a, button {
             -webkit-box-orient: vertical;
             font-size: 14px;
             line-height: 24px;
-            color: var(--my-color-grey-3);
+            color: var(--color-grey-3);
         }
     }
 }
@@ -612,7 +670,7 @@ a, button {
         flex-direction: column;
 
         .recommend-img{
-            background-color: var(--my-color-light-blue);
+            background-color: var(--color-light-blue);
             width: 282px;
             height: 282px;
         }
@@ -626,7 +684,7 @@ a, button {
             white-space: nowrap;
             overflow: hidden;
             display: block;
-            color: var(--my-color-black);
+            color: var(--color-black-3);
             line-height: 1.4;
             letter-spacing: -.025em;
             word-break: keep-all;
@@ -654,14 +712,14 @@ a, button {
 .product-content-exhibitions {
     /* width: 100%; */
     /* height: 513px; */
-    background-color: var(--my-color-light-grey);;
+    background-color: var(--color-light-grey);;
     padding: 100px 0;
 
     .exhb-tit {
         text-align: center;
         font-size: 32px;
         font-weight: 700;
-        color: var(--my-color-black);
+        color: var(--color-black-3);
         padding: 50px 0;
     }
 
@@ -674,7 +732,7 @@ a, button {
         font-size: 22px;
         font-weight: 700;
         letter-spacing: -.55px;
-        color: var(--my-color-black);
+        color: var(--color-black-3);
         padding-top: 10px;
     }
 
@@ -689,7 +747,7 @@ a, button {
     .exhb-date {
         font-size: 14px;
         letter-spacing: -.35px;
-        color: var(--my-color-grey-2);
+        color: var(--color-grey-2);
         font-weight: 700;
     }
 
@@ -751,22 +809,22 @@ a, button {
 
             .text {
                 font-weight: 500;
-                color: var(--my-color-grey-3);
+                color: var(--color-grey-3);
                 font-size: 22px;
                 letter-spacing: -.5px;
                 text-align: center;
             }
             .bottom-line {
-                border-bottom: var(--my-color-grey-3) solid 1px;
+                border-bottom: var(--color-grey-3) solid 1px;
             }
 
             &:hover {
-                .text{ color: var(--my-color-sony-purple); }
-                .bottom-line{ border-bottom: var(--my-color-sony-purple) solid 2px; }
+                .text{ color: var(--color-blue); }
+                .bottom-line{ border-bottom: var(--color-blue) solid 2px; }
             }
             &.active {
-                .text{ color: var(--my-color-sony-purple); }
-                .bottom-line{ border-bottom: var(--my-color-sony-purple) solid 2px; }
+                .text{ color: var(--color-blue); }
+                .bottom-line{ border-bottom: var(--color-blue) solid 2px; }
             }
         }
     }
@@ -861,7 +919,7 @@ a, button {
             font-weight: 700;
             line-height: 1.5;
             letter-spacing: -.025em;
-            color: var(--my-color-black);
+            color: var(--color-black-3);
             
         }
         .common__title.h3 {
@@ -870,7 +928,7 @@ a, button {
             font-weight: 700;
             line-height: 1.5;
             letter-spacing: -.025em;
-            color: var(--my-color-black);
+            color: var(--color-black-3);
             padding: 20px 0;
             padding-top: 50px;
         }
@@ -896,11 +954,11 @@ a, button {
         width: 1200px;
     }
     .common__table tr:first-child {
-        border-top: 2px solid var(--my-color-black);
+        border-top: 2px solid var(--color-black-3);
     }
     .common__table th {
         font-weight: 700;
-        background-color: var(--my-color-light-grey);
+        background-color: var(--color-light-grey);
     }
     .common__table {
         width: 100%;
@@ -909,7 +967,7 @@ a, button {
         font-size: 16px;
         line-height: 1.5;
         letter-spacing: -.025em;
-        color: var(--my-color-black);
+        color: var(--color-black-3);
         border-collapse: collapse;
         border-spacing: 0;
         background-color: #fefefe;
@@ -917,7 +975,7 @@ a, button {
     tr{
         padding: .75em 1.5em;
         vertical-align: top;
-        border-bottom: 1px solid var(--my-color-light-grey-2);
+        border-bottom: 1px solid var(--color-light-grey-2);
     }
     th, td {
         padding: 10px;
@@ -957,7 +1015,7 @@ button{ background: none; }
 .sidebar-btn {
     width: 28px;
     height: 28px;
-    background-color: var(--my-color-sony-purple);
+    background-color: var(--color-blue);
     display: block;
     width: 60px;
     height: 60px;

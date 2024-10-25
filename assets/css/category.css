@@ -1,3 +1,79 @@
+:root {
+
+    /* color */
+    --color-white: #fff;
+    --color-light-grey: #fbfbfb;
+    --color-light-grey-2: #ddd;
+    --color-light-grey-3: #ccc;
+    --color-grey: #999;
+    --color-grey-2: #888;
+    --color-grey-3: #666;
+    --color-blue: #5865f5;
+    --color-black: #000;
+    --color-black-2: #111;
+    --color-black-3: #222;
+    --color-orange: rgb(255, 78, 0);
+    --color-silver: rgb(181, 181, 181);
+    --color-light-blue: #f4f7fa;
+
+    /* animation */
+    --animation-duration: 300ms;
+
+    /* font */
+    --font-size-48: 48px;
+    --font-size-40: 40px;
+    --font-size-32: 32px;
+    --font-size-24: 24px;
+    --font-size-22: 22px;
+    --font-size-20: 20px;
+    --font-size-18: 18px;
+    --font-size-16: 16px;
+    --font-size-14: 14px;
+    --font-size-12: 12px;
+    
+}
+
+.font-48-700 {
+    font-size: var(--font-size-48);
+    font-weight: 700;
+}
+
+.font-40-700 {
+    font-size: var(--font-size-40);
+    font-weight: 700;
+}
+
+.font-32-700 {
+    font-size: var(--font-size-32);
+    font-weight: 700;
+}
+
+.font-24-700 {
+    font-size: var(--font-size-24);
+    font-weight: 700;
+}
+
+.font-22-700 {
+    font-size: var(--font-size-22);
+    font-weight: 700;
+}
+
+.font-20-500 {
+    font-size: var(--font-size-20);
+    font-weight: 500;
+}
+
+.font-16-500 {
+    font-size: var(--font-size-16);
+    font-weight: 500;
+}
+
+
+
+body {
+    font-family: 'Noto Sans KR', serif;
+}
+
 a {
     text-decoration: none;
 }
